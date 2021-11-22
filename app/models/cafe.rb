@@ -7,7 +7,7 @@ class Cafe < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
-  validates :open_hour, presence: true
-  validates :close_hour, presence: true
+  validates :opening_hour, presence: true
+  validates :closing_hour, presence: true
   validates :description, length: { minimum: 100 }
 end
