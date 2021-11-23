@@ -1,37 +1,41 @@
+
 .sign-form {
-  background-color: seashell;
+  background-color: white;
   width: 60%;
   margin: 40px auto;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 2px 2px 16px hsla(0, 0%, 0%, .5);
+  box-shadow: 1px 1px 4px hsla(0, 0%, 0%, .5);
   text-align: center;
   text-decoration: none;
 }
 
+.sign-form p {
+  color: $dark-gray;
+}
+
 .form-heading {
-  color: rosybrown;
   text-align: center;
   margin-top: 20px;
   font-weight: 700;
 }
 
-.form-text {
-  color: FCF4EE;
+.remember-box{
+ text-align: left;
 }
 
 .form-submit-btn {
   text-decoration: none;
   width: 100%;
-  background: rgb(235, 179, 157);
+  background: $green-blue;
   border-radius: 16px;
   transition: .3s;
   font-weight: 700;
-  color: rgb(173, 86, 35);
-  &:hover {
-    background: rgb(226, 160, 134);
-    color: rgb(165, 70, 16);
-  }
+  color: $light;
+}
+
+.btn-text {
+  color: $light;
 }
 
 // .background {

@@ -1,6 +1,6 @@
 <div class="sign-form">
-  <p>Hello, <strong>coffee-loving</strong> workaholic!</p>
   <h2 class="form-heading">Sign up</h2>
+  <p>To become a <strong>coffee-loving</strong> workaholic!</p>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -29,8 +29,7 @@
 
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "form-submit-btn"%>
-      <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
+  <%= render "devise/shared/links" %>
 </div>
