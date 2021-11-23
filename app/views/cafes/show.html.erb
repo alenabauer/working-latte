@@ -1,0 +1,23 @@
+<%# Lines below are the picture carrousel with the cafe images %>
+<%# <div class=”carousel-inner”>
+  <%@listing.picture.each_with_index do |pic,i|%>
+  <%# <div class="carousel-item <%= "active " if i==0 %>
+       <%# <%= image_tag  pic %>
+  <%# </div> %>
+  <%# <%end%>
+<%# </div> %>
+<div class="header">
+  <%= render 'card', cafe: @cafe %>
+</div>
+<div class="show-tabs">
+  <ul>
+    <li>Info</li>
+    <li>Map</li>
+    <li>Menu</li>
+    <li>Reviews</li>
+  </ul>
+</div>
+<div class="info">
+  <h2> <%= @cafe.name %>  </h2>
+  <p> <%= @cafe.description %>  </p>
+</div>
