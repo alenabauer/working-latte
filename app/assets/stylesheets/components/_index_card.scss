@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 2px 2px 8px hsla(0, 0%, 0%, .5);
+  box-shadow: 1px 1px 4px hsla(23, 49%, 8%, .5);
   position: relative;
   color: white;
   &:before {
@@ -18,7 +18,7 @@
     width: 100%;
     height: 100%;
     border-radius: 8px;
-    background: rgba(black, 0.7);
+    background: rgba(black, 0.8);
     z-index: 1;
     opacity: .5;
   }
@@ -36,6 +36,7 @@
       width: 60%;
       font-weight: 700;
       text-align: right;
+      color: $light;
       // background-color: hsla(0, 0%, 100%, .8);
       // padding: 0 8px;
       // border-radius: 8px;
@@ -50,8 +51,15 @@
     // background-color: hsla(0, 0%, 100%, .8);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     * {
       margin-bottom: 0;
+    }
+    .card-tags i {
+      background-color: hsla(33, 47%, 96%, .7);
+      color: $dark-brown;
+      border-radius: 50%;
+      padding: 8px;
     }
   }
 }
