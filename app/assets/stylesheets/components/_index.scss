@@ -3,3 +3,12 @@
 @import "avatar";
 @import "navbar";
 @import "form";
+@import "index_card";
+
+body {
+  background-color: $light;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-brown;
+}
