@@ -1,0 +1,19 @@
+.index-search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px 16px 16px;
+  .index-filter-btn {
+    background-color: white;
+    padding: 4px 16px;
+    color: $dark-brown;
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px hsla(23, 49%, 8%, .5);
+  }
+}
+.card-tag {
+  background-color: hsla(33, 47%, 96%, .7);
+  color: $dark-brown;
+  border-radius: 50%;
+  padding: 8px;
+}

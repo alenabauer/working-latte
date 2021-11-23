@@ -27,39 +27,22 @@
     justify-content: space-between;
     align-items: flex-start;
     z-index: 2;
-    // p {
-    //   background-color: hsla(0, 0%, 100%, .7);
-    //   padding: 0 8px;
-    //   border-radius: 8px;
-    // }
     h3 {
       width: 60%;
       font-weight: 700;
       text-align: right;
       color: $light;
-      // background-color: hsla(0, 0%, 100%, .8);
-      // padding: 0 8px;
-      // border-radius: 8px;
     }
   }
   .card-cafe-bottom {
     width: 100%;
     z-index: 2;
     opacity: .8;
-    // padding: 0 8px;
-    // border-radius: 8px;
-    // background-color: hsla(0, 0%, 100%, .8);
     display: flex;
     justify-content: space-between;
     align-items: center;
     * {
       margin-bottom: 0;
-    }
-    .card-tags i {
-      background-color: hsla(33, 47%, 96%, .7);
-      color: $dark-brown;
-      border-radius: 50%;
-      padding: 8px;
     }
   }
 }
