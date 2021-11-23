@@ -1,0 +1,38 @@
+.card-cafe {
+  margin: 16px;
+  padding: 16px;
+  height: 45vw;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 2px 8px hsla(0, 0%, 0%, .5);
+  .card-cafe-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    p {
+      background-color: hsla(0, 0%, 100%, .7);
+      padding: 0 8px;
+      border-radius: 8px;
+    }
+    h3 {
+      width: 60%;
+      font-weight: 700;
+      background-color: hsla(0, 0%, 100%, .8);
+      padding: 0 8px;
+      border-radius: 8px;
+    }
+  }
+  .card-cafe-bottom {
+    width: 100%;
+    padding: 0 8px;
+    border-radius: 8px;
+    background-color: hsla(0, 0%, 100%, .8);
+    display: flex;
+    justify-content: space-between;
+    * {
+      margin-bottom: 0;
+    }
+  }
+}
