@@ -1,0 +1,47 @@
+
+.sign-form {
+  background-color: white;
+  width: 60%;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 1px 1px 4px hsla(0, 0%, 0%, .5);
+  text-align: center;
+  text-decoration: none;
+}
+
+.sign-form p {
+  color: $dark-gray;
+}
+
+.form-heading {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.remember-box{
+ text-align: left;
+}
+
+.form-submit-btn {
+  text-decoration: none;
+  width: 100%;
+  background: $green-blue;
+  border-radius: 16px;
+  transition: .3s;
+  font-weight: 700;
+  color: $light;
+}
+
+.btn-text {
+  color: $light;
+}
+
+// .background {
+//   padding: 0;
+//   height: 600px;
+//   width: 100%;
+//   background-image: url(images/coffee.jpg);
+//   background-size: cover;
+// }
