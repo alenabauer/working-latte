@@ -1,0 +1,43 @@
+.sign-form {
+  background-color: seashell;
+  width: 60%;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 16px hsla(0, 0%, 0%, .5);
+  text-align: center;
+  text-decoration: none;
+}
+
+.form-heading {
+  color: rosybrown;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.form-text {
+  color: FCF4EE;
+}
+
+.form-submit-btn {
+  text-decoration: none;
+  width: 100%;
+  background: rgb(235, 179, 157);
+  border-radius: 16px;
+  transition: .3s;
+  font-weight: 700;
+  color: rgb(173, 86, 35);
+  &:hover {
+    background: rgb(226, 160, 134);
+    color: rgb(165, 70, 16);
+  }
+}
+
+// .background {
+//   padding: 0;
+//   height: 600px;
+//   width: 100%;
+//   background-image: url(images/coffee.jpg);
+//   background-size: cover;
+// }
