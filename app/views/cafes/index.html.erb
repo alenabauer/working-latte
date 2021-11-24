@@ -3,6 +3,24 @@
   <div class="index-search-bar"></div>
   <div class="index-filter-btn"><i class="fas fa-filter filter-tag"></i> Filter</div>
 </div>
-<% @cafes.each do |cafe| %>
-  <%= render 'card', cafe: cafe %>
-<% end %>
+
+<div class="tabset" id="index-tabset">
+  <!-- Tab 1 -->
+  <input type="radio" name="tabset" id="tablist" aria-controls="cafes-list" checked>
+  <label for="tablist">List View</label>
+  <!-- Tab 2 -->
+  <input type="radio" name="tabset" id="tabmap" aria-controls="cafes-map">
+  <label for="tabmap">Map View</label>
+
+  <div class="tab-panels">
+    <section id="cafes-list" class="tab-panel">
+      <% @cafes.each do |cafe| %>
+        <%= render 'card', cafe: cafe %>
+      <% end %>
+    </section>
+    <section id="cafes-map" class="tab-panel">
+      <%= render 'map', markers: @markers %>
+    </section>
+  </div>
+
+</div>
