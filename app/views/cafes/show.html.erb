@@ -1,13 +1,7 @@
 <%# Lines below are the picture carrousel with the cafe images %>
-<%# <div class=”carousel-inner”>
-  <%@listing.picture.each_with_index do |pic,i|%>
-  <%# <div class="carousel-item <%= "active " if i==0 %>
-       <%# <%= image_tag  pic %>
-  <%# </div> %>
-  <%# <%end%>
-<%# </div> %>
 <div class="header">
-  <%= render 'card', cafe: @cafe %>
+<%= cl_image_tag("photo-1445116572660-236099ec97a0_j945rh",
+      width: 350, height: 300, crop: :fill) %>
 </div>
 
 <div class="info">
