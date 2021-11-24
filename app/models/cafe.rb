@@ -5,6 +5,7 @@ class Cafe < ApplicationRecord
   has_many :tags, through: :cafe_tags
   has_many :chairs
   has_many :reservations, through: :chairs
+  has_many_attached :photos
 
   validates :name, presence: true
   validates :address, presence: true
