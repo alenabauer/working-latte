@@ -8,6 +8,7 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 Cafe.destroy_all
 User.destroy_all
+
 TAGS = [ "vegan", "pet friendly", "gluten-free", "quiet", "social", "food", "alcohol" ]
 
 puts "Creating Santa..."
