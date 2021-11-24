@@ -18,22 +18,21 @@
 }
 
 
-// .my-dropdown {
-//   display: inline-block;
-//   position: relative;
-//   i {
-//     color: $dark-brown;
-//     font-size: 26px;
-//   }
-// }
+.my-dropdown {
+  display: inline-block;
+  position: relative;
+}
 
-// .dropdown-content {
-//   display: none;
-//   background-color: white;
-//   color: $dark-brown;
-//   position: absolute;
-//   right: 0;
-//   min-width: 120px;
-//   width: fit-content;
-//   border-radius: 12px;
-// }
+#navbarSupportedContent {
+  background-color: white;
+  text-align: left;
+  color: $dark-brown;
+  padding-left: 10px;
+  margin-left: 60%;
+  margin-top: 10px;
+  width: fit-content;
+  border-radius: 12px;
+  li {
+    margin-right: 0;
+  }
+}
