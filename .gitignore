@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+#gemfile.lock
+Gemfile.lock
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -40,3 +43,4 @@ yarn-debug.log*
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+.env*

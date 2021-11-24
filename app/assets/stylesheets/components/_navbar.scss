@@ -13,7 +13,7 @@
   align-items: baseline;
   i {
     color: $dark-brown;
-    font-size: 26px;
+    font-size: 30px;
   }
 }
 
@@ -21,9 +21,13 @@
 .my-dropdown {
   display: inline-block;
   position: relative;
+  border: none;
+  &:active {
+    border: none;
+  }
 }
 
-#navbarSupportedContent {
+.dropdown-content {
   background-color: white;
   text-align: left;
   color: $dark-brown;
