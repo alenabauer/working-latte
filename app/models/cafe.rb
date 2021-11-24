@@ -11,7 +11,7 @@ class Cafe < ApplicationRecord
   validates :address, presence: true
   validates :opening_hour, presence: true
   validates :closing_hour, presence: true
-  validates :description, length: { minimum: 100 }
+  validates :description, length: { minimum: 50 }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
