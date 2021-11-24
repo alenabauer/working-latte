@@ -1,15 +1,41 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light;
-  padding: 10px;
+  padding: 24px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon i {
-  color: $dark-brown;
-  font-size: 24px;
-  margin-left: 10px;
+.navbar-lewagon .navbar-brand {
+  display: flex;
+  align-items: baseline;
+  i {
+    color: $dark-brown;
+    font-size: 26px;
+  }
 }
+
+
+.my-dropdown {
+  display: inline-block;
+  position: relative;
+  i {
+    color: $dark-brown;
+    font-size: 26px;
+  }
+}
+
+.dropdown-content {
+  display: none;
+  background-color: white;
+  color: $dark-brown;
+  position: absolute;
+  right: 0;
+  min-width: 120px;
+  width: fit-content;
+  border-radius: 12px;
+}
+
+&:
