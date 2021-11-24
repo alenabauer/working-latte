@@ -36,38 +36,7 @@ cafe1_image2 = URI.open('https://images.unsplash.com/photo-1509042239860-f550ce7
 cafe1_image = URI.open('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80.jpg')
 puts "Images loaded!"
 
-puts "Creating cafes worldwide..."
-
-cafe1 = Cafe.create!({
-  name: "Jingle Bells",
-  address: "Moscow, Russia",
-  opening_hour: 8,
-  closing_hour: 16,
-  description: "The best place to be on a frosty winter day. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  user: users.sample
-  })
-
-  cafe1.photos.attach(io: cafe1_image, filename: "#{cafe1.name}1.jpg", content_type: 'image/jpg')
-  cafe1.photos.attach(io: cafe1_image2, filename: "#{cafe1.name}2.jpg", content_type: 'image/jpg')
-
-
-cafe2 = Cafe.create!({
-  name: "Dominick the Donkey",
-  address: "Rome, Italy",
-  opening_hour: 12,
-  closing_hour: 20,
-  description: "A secret coffee place full of deers, music, and laughter. Pretty sure you'll want to come back (specially after tasing our hot chocolate with cookies).",
-  user: users.sample
-})
-
-cafe3 = Cafe.create!({
-  name: "Winter Wonderland",
-  address: "Paris, France",
-  opening_hour: 14,
-  closing_hour: 23,
-  description: "Come by and have a cup of our famous winter latte with whipped cream on top. Our carrot cake is a MUST! We're in downtown Paris, you won't believe the views!",
-  user: users.sample
-})
+puts "Creating cafes in Cologne..."
 
 cafe4 = Cafe.create!({
   name: "Working Cave",
@@ -141,7 +110,9 @@ cafe11 = Cafe.create!({
   user: users.sample
 })
 
-puts "Cates created! Your seeds are all set!"
+puts "Cafes created!"
+
+puts "Assigning tags to cafes..."
 
 CafeTag.create(cafe: cafe1, tag: pet_friendly)
 CafeTag.create(cafe: cafe1, tag: vegan)
@@ -170,3 +141,5 @@ CafeTag.create(cafe: cafe11, tag: pet_friendly)
 CafeTag.create(cafe: cafe11, tag: food)
 CafeTag.create(cafe: cafe11, tag: glutenfree)
 CafeTag.create(cafe: cafe11, tag: social)
+
+puts "All seeds set up!"
