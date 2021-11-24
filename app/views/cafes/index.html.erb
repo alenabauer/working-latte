@@ -1,8 +1,10 @@
-<h2 class="text-center">Search Results</h2>
-<div class="index-search-filter-container">
+<h2 class="text-center index-heading">Cafes in Cologne</h2>
+
+<%# FILTER %>
+<%# <div class="index-search-filter-container">
   <div class="index-search-bar"></div>
   <div class="index-filter-btn"><i class="fas fa-filter filter-tag"></i> Filter</div>
-</div>
+</div> %>
 
 <div class="tabset" id="index-tabset">
   <!-- Tab 1 -->
@@ -15,7 +17,9 @@
   <div class="tab-panels">
     <section id="cafes-list" class="tab-panel">
       <% @cafes.each do |cafe| %>
-        <%= render 'card', cafe: cafe %>
+        <%= link_to cafe_path(cafe), class: "card-link" do %>
+          <%= render 'card', cafe: cafe %>
+        <% end %>
       <% end %>
     </section>
     <section id="cafes-map" class="tab-panel">
