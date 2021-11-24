@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 16px 16px 16px;
+  margin: 0 0 16px;
   .index-filter-btn {
     background-color: white;
     padding: 4px 16px;
@@ -16,4 +16,11 @@
   color: $dark-brown;
   border-radius: 50%;
   padding: 8px;
+}
+
+#index-tabset {
+  label {
+    width: 49.3%;
+    text-align: center;
+  }
 }
