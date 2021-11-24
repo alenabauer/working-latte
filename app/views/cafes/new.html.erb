@@ -1,0 +1,34 @@
+<div class="sign-form">
+  <h2 class="form-heading">Sign Your Café up</h2>
+  <p>To host <strong>coffee-loving</strong> workaholics!</p>
+  <%= simple_form_for(Cafe.new) do |f| %>
+
+      <div class="form-inputs">
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true%>
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :opening_hour,
+                    as: :select,
+                    collection: Cafe::HOURS,
+                    required: true,
+                    autofocus: true %>
+         <%= f.input :closing_hour,
+                    as: :select,
+                    collection: Cafe::HOURS,
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :description,
+                    required: true %>
+        <%= f.input :photos,
+                    as: :file,
+                    input_html: { multiple: true } %>
+      </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "form-submit-btn"%>
+    </div>
+  <% end %>
+</div>

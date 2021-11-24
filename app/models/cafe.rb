@@ -1,4 +1,5 @@
 class Cafe < ApplicationRecord
+  HOURS = (6..24).to_a.freeze
   belongs_to :user
   has_many :cafe_tags
   has_many :tags, through: :cafe_tags
