@@ -2,7 +2,7 @@ class CafesController < ApplicationController
   skip_before_action :authenticate_user!, :only => [ :index, :show ]
 
   def new
-    @cafes = Cafe.new
+    @cafe = Cafe.new
   end
 
   def index
