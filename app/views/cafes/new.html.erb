@@ -1,0 +1,56 @@
+<div class="justify-content-center row">
+  <div class="sign-form">
+    <h2 class="form-heading">Sign Your Café up</h2>
+    <p>To host <strong>coffee-loving</strong> workaholics!</p>
+    <%= simple_form_for(@cafe) do |f| %>
+
+        <div class="form-inputs">
+          <div class="form-group">
+            <%= f.input :name,
+                        required: true,
+                        autofocus: true%>
+          </div>
+          <div class="form-group">
+            <%= f.input :address,
+                        required: true,
+                        autofocus: true %>
+          </div>
+            <div class="row">
+              <div class="form-group col-6">
+                <%= f.input :opening_hour,
+                            as: :select,
+                            collection: Cafe::HOURS,
+                            required: true,
+                            autofocus: true %>
+              </div>
+              <div class="form-group col-6">
+                <%= f.input :closing_hour,
+                            as: :select,
+                            collection: Cafe::HOURS,
+                            required: true,
+                            autofocus: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.input :description,
+                          required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.input :photos,
+                          as: :file,
+                          input_html: { multiple: true } %>
+            </div>
+          <%# <div class="tag">
+              <span type="checkbox">
+                <%= f.input :tags,
+                            as: :boolean %>
+              <%# </span> %>
+            </div>
+        </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Register your Café", class: "form-submit-btn"%>
+      </div>
+    <% end %>
+  </div>
+</div>
