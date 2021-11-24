@@ -12,7 +12,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/alenabauer/ckwdpi55b28ty14kobw7pfet0'
     });
 
     this._addMarkersToMap();
@@ -21,7 +21,14 @@ export default class extends Controller {
 
   _addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
+      const customMarker = document.createElement('div');
+      customMarker.className = 'marker';
+      customMarker.innerHTML = '<i class="fas fa-coffee"></i>';
+      customMarker.style.fontSize = '16px';
+      customMarker.style.textShadow = '1px 1px 2px black';
+      customMarker.style.color = '#1AB8C7';
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
     });
