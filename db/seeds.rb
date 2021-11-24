@@ -6,10 +6,14 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+<<<<<<< HEAD
 Cafe.destroy_all
 User.destroy_all
 
 puts "Creating tags..."
+=======
+TAGS = [ "vegan", "pet friendly", "gluten-free", "quiet", "social", "food", "alcohol" ]
+>>>>>>> master
 
 pet_friendly = Tag.create(name: "pet friendly")
 glutenfree = Tag.create(name: "gluten-free")
