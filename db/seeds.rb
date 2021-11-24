@@ -6,14 +6,10 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
 Cafe.destroy_all
 User.destroy_all
 
 puts "Creating tags..."
-=======
-TAGS = [ "vegan", "pet friendly", "gluten-free", "quiet", "social", "food", "alcohol" ]
->>>>>>> master
 
 pet_friendly = Tag.create(name: "pet friendly")
 glutenfree = Tag.create(name: "gluten-free")
@@ -146,3 +142,31 @@ cafe11 = Cafe.create!({
 })
 
 puts "Cates created! Your seeds are all set!"
+
+# CafeTag.create(cafe: cafe1, tag: pet_friendly)
+# CafeTag.create(cafe: cafe1, tag: vegan)
+# CafeTag.create(cafe: cafe1, tag: social)
+# CafeTag.create(cafe: cafe2, tag: glutenfree)
+# CafeTag.create(cafe: cafe2, tag: quiet)
+# CafeTag.create(cafe: cafe3, tag: social)
+# CafeTag.create(cafe: cafe3, tag: glutenfree)
+# CafeTag.create(cafe: cafe3, tag: vegan)
+# CafeTag.create(cafe: cafe3, tag: pet_friendly)
+# CafeTag.create(cafe: cafe4, tag: glutenfree)
+# CafeTag.create(cafe: cafe5, tag: vegan)
+# CafeTag.create(cafe: cafe5, tag: pet_friendly)
+# CafeTag.create(cafe: cafe6, tag: vegan)
+# CafeTag.create(cafe: cafe6, tag: social)
+# CafeTag.create(cafe: cafe7, tag: vegan)
+# CafeTag.create(cafe: cafe7, tag: pet_friendly)
+# CafeTag.create(cafe: cafe7, tag: glutenfree)
+# CafeTag.create(cafe: cafe8, tag: pet_friendly)
+# CafeTag.create(cafe: cafe8, tag: food)
+# CafeTag.create(cafe: cafe9, tag: pet_friendly)
+# CafeTag.create(cafe: cafe9, tag: food)
+# CafeTag.create(cafe: cafe10, tag: vegan)
+# CafeTag.create(cafe: cafe10, tag: food)
+# CafeTag.create(cafe: cafe11, tag: pet_friendly)
+# CafeTag.create(cafe: cafe11, tag: food)
+# CafeTag.create(cafe: cafe11, tag: glutenfree)
+# CafeTag.create(cafe: cafe11, tag: social)
