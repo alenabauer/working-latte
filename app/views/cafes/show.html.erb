@@ -35,6 +35,13 @@
     <section id="marzen" class="tab-panel">
       <h2>Cafe info</h2>
       <p><strong>Café characteristics:</strong> An elegant, malty German amber lager with a clean, rich, toasty and bready malt flavor, restrained bitterness, and a dry finish that encourages another drink. The overall malt impression is soft, elegant, and complex, with a rich aftertaste that is never cloying or heavy.</p>
+        <ul class="tags-ul">
+          <% @cafe.tags.each do |tag| %>
+      <div class="d-flex">
+          <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
+      </div>
+          <% end %>
+        </ul>
       <p><strong>Overview:</strong> <%= @cafe.description %></p>
     </section>
       <section id="rauchbier" class="tab-panel">
