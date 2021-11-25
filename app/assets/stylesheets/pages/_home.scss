@@ -7,19 +7,26 @@
   box-shadow: 1px 1px 4px rgba($color: #000000, $alpha: 0.5);
 }
 
-.introduction p {
-  font-size: 12px;
+.introduction {
+  margin-bottom: 16px;
+  h3 {
+    margin-top: 20px;
+  }
+  p {
+  // font-size: 14px;
+  color: #828282;
+  }
 }
 
 .form-control {
   width: 100%;
-  border-radius: 10px;
-  font-size: 12px;
+  border-radius: 8px;
+  font-size: 14px;
   margin: 0 auto;
 }
 
 .button-container {
-  // text-align: center;
+  text-align: center;
   margin: 16px 0;
 }
 
@@ -31,7 +38,7 @@
   margin-bottom: 0;
   border: none;
   p {
-    font-size: 14px;
+    // font-size: 14px;
     font-weight: 700;
     margin-bottom: 0;
     padding: 6px 12px;
