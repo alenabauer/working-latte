@@ -30,6 +30,9 @@ body {
   color: #333;
   font-weight: 300;
 }
+.cafe-name{
+  padding-top: 15px;
+}
 
 .tabset > label {
   padding: 4px 16px;
@@ -77,6 +80,10 @@ body {
 .tabset {
   max-width: 65em;
 }
+.d-flex p {
+  margin-left: 10px;
+  font-size: 12px;
+}
 
 .show-page-img {
   width: 100%;
@@ -91,6 +98,13 @@ body {
 .tags-ul {
   padding-left: 0;
 }
+.caroussel-img {
+  border-radius: 8px;
+}
+
+.tab-panel p {
+  text-align: justify;
+}
 
 .book-btn {
   background-color: #4DB8C7;
@@ -101,7 +115,6 @@ body {
   position:sticky;
   bottom: 15px;
   text-align: center;
-  margin-left: 30px;
   border-radius: 10px;
   &:active {
     color: white;
