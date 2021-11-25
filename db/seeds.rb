@@ -13,12 +13,12 @@ User.destroy_all
 
 puts "Creating tags..."
 
-pet_friendly = Tag.create(name: "pet friendly")
-glutenfree = Tag.create(name: "gluten-free")
-quiet = Tag.create(name: "quiet")
-social = Tag.create(name: "social")
-food = Tag.create(name: "food")
-vegan = Tag.create(name: "vegan")
+pet_friendly = Tag.create(name: "pet friendly", description: "Pet-friendly, feel free to bring your furry friends!", icon:"fas fa-dog")
+glutenfree = Tag.create(name: "gluten-free", description: "Gluten-free options available")
+quiet = Tag.create(name: "quiet", description:"Cozy & quiet atmosphere", icon:"fas fa-volume-mute")
+social = Tag.create(name: "social", description:"Chill atmosphere, great place for meetings and brainstorming sessions", icon:"fas fa-user-friends")
+food = Tag.create(name: "food", description:"Food available on our menú, stay for lunch!", icon:"fas fa-utensils")
+vegan = Tag.create(name: "vegan", description:"Vegan options available", icon:"fas fa-leaf")
 
 puts "Tags created!"
 
