@@ -1,3 +1,7 @@
+.index-heading {
+  margin: 8px 0 24px;
+}
+
 .index-search-filter-container {
   display: flex;
   justify-content: space-between;
@@ -12,8 +16,8 @@
   }
 }
 .card-tag {
-  background-color: hsla(33, 47%, 96%, .7);
-  color: $dark-brown;
+  background-color: hsla(185, 77%, 44%, .9);
+  color: white;
   border-radius: 50%;
   padding: 8px;
 }
@@ -22,5 +26,15 @@
   label {
     width: 49.3%;
     text-align: center;
+    color: $beige;
+    border-radius: 8px 8px 0 0;
   }
+}
+#index-tabset > input:checked + label {
+  background-color: $beige;
+  color: white;
+}
+.card-link {
+  text-decoration: none;
+  margin: 0;
 }

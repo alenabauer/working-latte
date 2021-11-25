@@ -6,6 +6,8 @@ require "open-uri"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+CafeTag.destroy_all
+Tag.destroy_all
 Cafe.destroy_all
 User.destroy_all
 
@@ -32,44 +34,26 @@ puts "WorkingLatte users created!"
 puts "Creating cafes..."
 
 puts "Creating images..."
-cafe1_image2 = URI.open('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80.jpg')
-cafe1_image = URI.open('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80.jpg')
+cafe1_image1 = URI.open('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80.jpg')
+cafe1_image2 = URI.open('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80.jpg')
+cafe2_image1 = URI.open('https://images.unsplash.com/photo-1493857671505-72967e2e2760?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80.jpg')
+cafe2_image2 = URI.open('https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80.jpg')
+cafe3_image1 = URI.open('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80.jpg')
+cafe3_image2 = URI.open('https://images.unsplash.com/photo-1432860560641-49d2a6156b81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80.jpg')
+cafe3_image3 = URI.open('https://images.unsplash.com/photo-1514066558159-fc8c737ef259?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80.jpg')
+cafe4_image1 = URI.open('https://images.unsplash.com/photo-1522648485144-849409408aee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80.jpg')
+cafe5_image1 = URI.open('https://images.unsplash.com/photo-1608716349354-922a756b3455?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80.jpg')
+cafe5_image2 = URI.open('https://images.unsplash.com/photo-1608716349384-9bdc855c03b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80.jpg')
+cafe6_image1 = URI.open('https://images.unsplash.com/photo-1627024195413-6465b719a08c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80.jpg')
+cafe7_image1 = URI.open('https://images.unsplash.com/photo-1617430690223-3e165b390e25?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80.jpg')
+cafe7_image2 = URI.open('https://images.unsplash.com/photo-1617430690220-45101953a208?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80.jpg')
+cafe8_image1 = URI.open('https://images.unsplash.com/photo-1615997588870-1bd56db506cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80.jpg')
+cafe8_image2 = URI.open('https://images.unsplash.com/photo-1501747315-124a0eaca060?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80.jpg')
 puts "Images loaded!"
 
-puts "Creating cafes worldwide..."
+puts "Creating cafes in Cologne..."
 
 cafe1 = Cafe.create!({
-  name: "Jingle Bells",
-  address: "Moscow, Russia",
-  opening_hour: 8,
-  closing_hour: 16,
-  description: "The best place to be on a frosty winter day. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  user: users.sample
-  })
-
-  cafe1.photos.attach(io: cafe1_image, filename: "#{cafe1.name}1.jpg", content_type: 'image/jpg')
-  cafe1.photos.attach(io: cafe1_image2, filename: "#{cafe1.name}2.jpg", content_type: 'image/jpg')
-
-
-cafe2 = Cafe.create!({
-  name: "Dominick the Donkey",
-  address: "Rome, Italy",
-  opening_hour: 12,
-  closing_hour: 20,
-  description: "A secret coffee place full of deers, music, and laughter. Pretty sure you'll want to come back (specially after tasing our hot chocolate with cookies).",
-  user: users.sample
-})
-
-cafe3 = Cafe.create!({
-  name: "Winter Wonderland",
-  address: "Paris, France",
-  opening_hour: 14,
-  closing_hour: 23,
-  description: "Come by and have a cup of our famous winter latte with whipped cream on top. Our carrot cake is a MUST! We're in downtown Paris, you won't believe the views!",
-  user: users.sample
-})
-
-cafe4 = Cafe.create!({
   name: "Working Cave",
   address: "Moltkestr 88, Cologne",
   opening_hour: 9,
@@ -78,7 +62,10 @@ cafe4 = Cafe.create!({
   user: users.sample
 })
 
-cafe5 = Cafe.create!({
+cafe1.photos.attach(io: cafe1_image1, filename: "#{cafe1.name}1.jpg", content_type: 'image/jpg')
+cafe1.photos.attach(io: cafe1_image2, filename: "#{cafe1.name}2.jpg", content_type: 'image/jpg')
+
+cafe2 = Cafe.create!({
   name: "The Swing",
   address: "Sankt Apern Str 10, Cologne",
   opening_hour: 9,
@@ -87,7 +74,10 @@ cafe5 = Cafe.create!({
   user: users.sample
 })
 
-cafe6 = Cafe.create!({
+cafe2.photos.attach(io: cafe2_image1, filename: "#{cafe2.name}1.jpg", content_type: 'image/jpg')
+cafe2.photos.attach(io: cafe2_image2, filename: "#{cafe2.name}2.jpg", content_type: 'image/jpg')
+
+cafe3 = Cafe.create!({
   name: "Kaffeesaurus",
   address: "Friesenplatz, Cologne",
   opening_hour: 8,
@@ -96,7 +86,11 @@ cafe6 = Cafe.create!({
   user: users.sample
 })
 
-cafe7 = Cafe.create!({
+cafe3.photos.attach(io: cafe3_image1, filename: "#{cafe3.name}1.jpg", content_type: 'image/jpg')
+cafe3.photos.attach(io: cafe3_image2, filename: "#{cafe3.name}2.jpg", content_type: 'image/jpg')
+cafe3.photos.attach(io: cafe3_image3, filename: "#{cafe3.name}3.jpg", content_type: 'image/jpg')
+
+cafe4 = Cafe.create!({
   name: "hommage Cafe",
   address: "Friesenstrasse 73, Cologne",
   opening_hour: 8,
@@ -105,7 +99,9 @@ cafe7 = Cafe.create!({
   user: users.sample
 })
 
-cafe8 = Cafe.create!({
+cafe4.photos.attach(io: cafe4_image1, filename: "#{cafe4.name}1.jpg", content_type: 'image/jpg')
+
+cafe5 = Cafe.create!({
   name: "Cafe Riese Koln",
   address: "Schildergasse 103, Cologne",
   opening_hour: 9,
@@ -114,7 +110,10 @@ cafe8 = Cafe.create!({
   user: users.sample
 })
 
-cafe9 = Cafe.create!({
+cafe5.photos.attach(io: cafe5_image1, filename: "#{cafe5.name}1.jpg", content_type: 'image/jpg')
+cafe5.photos.attach(io: cafe5_image2, filename: "#{cafe5.name}2.jpg", content_type: 'image/jpg')
+
+cafe6 = Cafe.create!({
   name: "Kaffee & Kuchen",
   address: "Venloer Strasse 19, Cologne",
   opening_hour: 9,
@@ -123,7 +122,9 @@ cafe9 = Cafe.create!({
   user: users.sample
 })
 
-cafe10 = Cafe.create!({
+cafe6.photos.attach(io: cafe6_image1, filename: "#{cafe6.name}1.jpg", content_type: 'image/jpg')
+
+cafe7 = Cafe.create!({
   name: "THE COFFEE GANG",
   address: "Hohenstaufenring 19, Cologne",
   opening_hour: 8,
@@ -132,7 +133,10 @@ cafe10 = Cafe.create!({
   user: users.sample
 })
 
-cafe11 = Cafe.create!({
+cafe7.photos.attach(io: cafe7_image1, filename: "#{cafe7.name}1.jpg", content_type: 'image/jpg')
+cafe7.photos.attach(io: cafe7_image2, filename: "#{cafe7.name}2.jpg", content_type: 'image/jpg')
+
+cafe8 = Cafe.create!({
   name: "Fassbender",
   address: "Obenmarspforten 7, Cologne",
   opening_hour: 10,
@@ -141,32 +145,31 @@ cafe11 = Cafe.create!({
   user: users.sample
 })
 
-puts "Cates created! Your seeds are all set!"
+cafe8.photos.attach(io: cafe8_image1, filename: "#{cafe8.name}1.jpg", content_type: 'image/jpg')
+cafe8.photos.attach(io: cafe8_image2, filename: "#{cafe8.name}2.jpg", content_type: 'image/jpg')
 
-# CafeTag.create(cafe: cafe1, tag: pet_friendly)
-# CafeTag.create(cafe: cafe1, tag: vegan)
-# CafeTag.create(cafe: cafe1, tag: social)
-# CafeTag.create(cafe: cafe2, tag: glutenfree)
-# CafeTag.create(cafe: cafe2, tag: quiet)
-# CafeTag.create(cafe: cafe3, tag: social)
-# CafeTag.create(cafe: cafe3, tag: glutenfree)
-# CafeTag.create(cafe: cafe3, tag: vegan)
-# CafeTag.create(cafe: cafe3, tag: pet_friendly)
-# CafeTag.create(cafe: cafe4, tag: glutenfree)
-# CafeTag.create(cafe: cafe5, tag: vegan)
-# CafeTag.create(cafe: cafe5, tag: pet_friendly)
-# CafeTag.create(cafe: cafe6, tag: vegan)
-# CafeTag.create(cafe: cafe6, tag: social)
-# CafeTag.create(cafe: cafe7, tag: vegan)
-# CafeTag.create(cafe: cafe7, tag: pet_friendly)
-# CafeTag.create(cafe: cafe7, tag: glutenfree)
-# CafeTag.create(cafe: cafe8, tag: pet_friendly)
-# CafeTag.create(cafe: cafe8, tag: food)
-# CafeTag.create(cafe: cafe9, tag: pet_friendly)
-# CafeTag.create(cafe: cafe9, tag: food)
-# CafeTag.create(cafe: cafe10, tag: vegan)
-# CafeTag.create(cafe: cafe10, tag: food)
-# CafeTag.create(cafe: cafe11, tag: pet_friendly)
-# CafeTag.create(cafe: cafe11, tag: food)
-# CafeTag.create(cafe: cafe11, tag: glutenfree)
-# CafeTag.create(cafe: cafe11, tag: social)
+puts "Cafes created!"
+
+puts "Assigning tags to cafes..."
+
+CafeTag.create(cafe: cafe1, tag: pet_friendly)
+CafeTag.create(cafe: cafe1, tag: vegan)
+CafeTag.create(cafe: cafe1, tag: social)
+CafeTag.create(cafe: cafe2, tag: glutenfree)
+CafeTag.create(cafe: cafe2, tag: quiet)
+CafeTag.create(cafe: cafe3, tag: social)
+CafeTag.create(cafe: cafe3, tag: glutenfree)
+CafeTag.create(cafe: cafe3, tag: vegan)
+CafeTag.create(cafe: cafe3, tag: pet_friendly)
+CafeTag.create(cafe: cafe4, tag: glutenfree)
+CafeTag.create(cafe: cafe5, tag: vegan)
+CafeTag.create(cafe: cafe5, tag: pet_friendly)
+CafeTag.create(cafe: cafe6, tag: vegan)
+CafeTag.create(cafe: cafe6, tag: social)
+CafeTag.create(cafe: cafe7, tag: vegan)
+CafeTag.create(cafe: cafe7, tag: pet_friendly)
+CafeTag.create(cafe: cafe7, tag: glutenfree)
+CafeTag.create(cafe: cafe8, tag: pet_friendly)
+CafeTag.create(cafe: cafe8, tag: food)
+
+puts "All seeds set up!"
