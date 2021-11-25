@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+.container {
+  padding: 10px;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.introduction {
+  padding: 10px 0 0 10px;
+}
+
+.form-control {
+  margin: 0 auto;
+  width: 90%;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.button-container {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.home-search {
+  background-color: $green-blue;
+  color: white;
+  border-radius: 10px;
+  width: 90%;
+  margin-bottom: 0;
+  border: none;
+  p {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 0;
+    padding: 6px 12px;
+  }
+}
