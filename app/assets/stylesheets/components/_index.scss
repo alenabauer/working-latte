@@ -9,6 +9,11 @@
 
 body {
   background-color: $light;
+  text-align: center;
+  a {
+    color: $green-blue;
+    font-size: 14px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

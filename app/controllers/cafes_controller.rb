@@ -8,7 +8,7 @@ class CafesController < ApplicationController
   def index
 
     if params[:location].present?
-      @cafes = Cafe.where(address: params[:location])
+      @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
     else
       @cafes = Cafe.all
     end
