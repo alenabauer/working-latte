@@ -40,11 +40,10 @@
                           as: :file,
                           input_html: { multiple: true } %>
             </div>
-          <%# <div class="tag">
-              <span type="checkbox">
-                <%= f.input :tags,
-                            as: :boolean %>
-              <%# </span> %>
+            <div class="tag">
+                <%= f.association :tags,
+                            collection: @tags,
+                            input_html: {  class: 'multiselectuser' } %>
             </div>
         </div>
 
