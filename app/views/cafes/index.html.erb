@@ -1,5 +1,8 @@
-<h2 class="text-center index-heading">Cafés in Cologne</h2>
-
+<% if params[:location].present? %>
+  <h2 class="text-center index-heading">Cafes in <%= params[:location].capitalize %> </h2>
+<% else %>
+  <h2>All cafes</h2>
+<% end %>
 <%# FILTER %>
 <%# <div class="index-search-filter-container">
   <div class="index-search-bar"></div>
@@ -8,11 +11,16 @@
 
 <div class="tabset" id="index-tabset">
   <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tablist" aria-controls="cafes-list" checked>
-  <label for="tablist">List View</label>
+  <% if @cafes.length == 0 %>
+      <p class="not-found-msg">Sorry, we couldn't find any cafes.</p>
+      <%= link_to "See all cafes", cafes_path, class: "cafes-link" %>
+  <% else %>
+    <input type="radio" name="tabset" id="tablist" aria-controls="cafes-list" checked>
+    <label for="tablist">List View</label>
   <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tabmap" aria-controls="cafes-map">
-  <label for="tabmap">Map View</label>
+    <input type="radio" name="tabset" id="tabmap" aria-controls="cafes-map">
+    <label for="tabmap">Map View</label>
+  <% end %>
 
   <div class="tab-panels">
     <section id="cafes-list" class="tab-panel">
