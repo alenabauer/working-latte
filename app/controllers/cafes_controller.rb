@@ -31,6 +31,10 @@ class CafesController < ApplicationController
     end
   end
 
+  def add_chair
+    Chair.create(cafe: Cafe.find(params[:id]))
+  end
+
   private
 
   def cafe_params

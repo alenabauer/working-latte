@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_113007) do
+ActiveRecord::Schema.define(version: 2021_11_25_111213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2021_11_24_113007) do
     t.index ["cafe_id"], name: "index_chairs_on_cafe_id"
   end
 
+  create_table "reservation_time_slots", force: :cascade do |t|
+    t.bigint "time_slot_id", null: false
+    t.bigint "reservation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reservation_id"], name: "index_reservation_time_slots_on_reservation_id"
+    t.index ["time_slot_id"], name: "index_reservation_time_slots_on_time_slot_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "date"
@@ -103,6 +112,15 @@ ActiveRecord::Schema.define(version: 2021_11_24_113007) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "time_slots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "duration"
+    t.bigint "chair_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chair_id"], name: "index_time_slots_on_chair_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -124,8 +142,11 @@ ActiveRecord::Schema.define(version: 2021_11_24_113007) do
   add_foreign_key "cafe_tags", "tags"
   add_foreign_key "cafes", "users"
   add_foreign_key "chairs", "cafes"
+  add_foreign_key "reservation_time_slots", "reservations"
+  add_foreign_key "reservation_time_slots", "time_slots"
   add_foreign_key "reservations", "chairs"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "reservations"
   add_foreign_key "reviews", "users"
+  add_foreign_key "time_slots", "chairs"
 end

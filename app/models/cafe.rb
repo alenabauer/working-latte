@@ -4,6 +4,7 @@ class Cafe < ApplicationRecord
   has_many :cafe_tags
   has_many :tags, through: :cafe_tags
   has_many :chairs
+  has_many :time_slots, through: :chairs
   has_many :reservations, through: :chairs
   has_many_attached :photos
 
