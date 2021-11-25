@@ -40,7 +40,7 @@
                           as: :file,
                           input_html: { multiple: true } %>
             </div>
-            <div class="form-group col-6">
+            <div class="form-group">
 
               <%= f.association :tags,
                   as: :check_boxes,
@@ -50,8 +50,8 @@
                   label_method: :name,
                   value_method: :id,
                   include_blank: false %>
-
             </div>
+
         </div>
 
       <div class="form-actions">
