@@ -6,7 +6,12 @@ class CafesController < ApplicationController
   end
 
   def index
-    @cafes = Cafe.all
+
+    if params[:location].present?
+      @cafes = Cafe.where(address: params[:location])
+    else
+      @cafes = Cafe.all
+    end
 
     @markers = @cafes.geocoded.map do |cafe|
       {
