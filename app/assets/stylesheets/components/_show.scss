@@ -92,9 +92,27 @@ body {
   border-radius: 8px;
 }
 
-.modal-position {
-  top: 30%;
+// .modal-position {
+//   position: absolute;
+//   top: 20%;
+// }
+.my-modal-dialog {
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
+.my-modal-content {
+  border-radius: inherit;
+}
+.my-close-btn {
+  background: $beige;
+  color: $dark-brown;
+  border: none;
+  font-size: 24px;
+  padding: 0 16px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px hsla(0, 0%, 0%, .5);
+}
+
 .tags-ul {
   padding-left: 0;
 }
