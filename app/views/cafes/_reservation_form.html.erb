@@ -1,4 +1,4 @@
-<%= simple_form_for [chair, reservation] do |f| %>
-
-  <%= f.submit "Make a Reservation", class: "form-submit-btn" %>
+<%= simple_form_for [chair, reservation], url: chair_reservations_path(chair) do |f| %>
+  <%= f.association :time_slots, collection: chair.time_slots, label_method: :start_time, value_method: :id, as: :check_boxes %>
+  <%= f.submit "Book!", class: "form-submit-btn" %>
 <% end %>

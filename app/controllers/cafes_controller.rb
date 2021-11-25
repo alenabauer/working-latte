@@ -23,7 +23,6 @@ class CafesController < ApplicationController
 
   def show
     @cafe = Cafe.find(params[:id])
-
     @reservation = Reservation.new
   end
 
@@ -42,25 +41,9 @@ class CafesController < ApplicationController
     Chair.create(cafe: Cafe.find(params[:id]))
   end
 
-  def reservations
-    @cafe = Cafe.find(params[:id])
-    @reservation = Reservation.new
-    @reservation.cafe = @cafe
-    @reservation.user = current_user
-    if @reservation.save
-      redirect_to dashboard_path
-    else
-      render :show
-    end
-  end
-
   private
 
   def cafe_params
     params.require(:cafe).permit(:name, :address, :opening_hour, :closing_hour, :description, photos: [])
-  end
-
-  def reservation_params
-    # params.require(:time_slot).permit(:start_time)
   end
 end
