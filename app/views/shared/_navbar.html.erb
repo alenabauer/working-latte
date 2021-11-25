@@ -8,18 +8,21 @@
 
   <div class="collapse navbar-collapse dropdown-content" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Signout</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Dashboard", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign-out", destroy_user_session_path, method: "delete", class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
