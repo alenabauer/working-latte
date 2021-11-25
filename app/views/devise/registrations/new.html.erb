@@ -1,4 +1,4 @@
-<div class="sign-form">
+<div class="sign-form" data-controller="sign-up">
   <h2 class="form-heading">Sign up</h2>
   <p>To become a <strong>coffee-loving</strong> workaholic!</p>
 
@@ -23,12 +23,27 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%# <%= f.button :is_cafe_owner, "Do you own a Café?" %>
+      <div class="form-group">
+              <%= f.input :is_cafe_owner,
+                  as: :boolean,
+                  input_html: {
+                    class: "toggle",
+                    data: {
+                      sign_up_target: "isCafeOwner",
+                      action: "change->sign-up#checkboxChange"
+                    }
+                  } %>
+      </div>
+
 
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "form-submit-btn"%>
+    <div class="form-actions" >
+      <%= f.button :submit, "Sign up", class: "form-submit-btn",
+          data: {
+            sign_up_target: :button
+          }
+      %>
     </div>
   <% end %>
   <%= render "devise/shared/links" %>
