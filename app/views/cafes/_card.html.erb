@@ -1,10 +1,30 @@
-<div class="card-cafe" style="background: url(https://images.unsplash.com/photo-1614542307025-2f5eaaef28f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80); background-size: contain;">
+<div class="card-cafe" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
   <div class="card-cafe-top">
-    <p><i class="fas fa-shoe-prints"></i> 700 m</p>
+    <p>
+      <%# <i class="fas fa-shoe-prints"></i> 700 m %>
+    </p>
     <h3><%= cafe.name %></h3>
   </div>
   <div class="card-cafe-bottom">
-    <p><i class="fas fa-leaf card-tag"></i> <i class="fas fa-dog card-tag"></i></p>
+    <p>
+      <% cafe.tags.each do |tag| %>
+        <% if tag.name == "vegan" %>
+          <i class="fas fa-leaf card-tag"></i>
+        <% end %>
+        <% if tag.name == "pet friendly" %>
+          <i class="fas fa-dog card-tag"></i>
+        <% end %>
+        <% if tag.name == "food" %>
+          <i class="fas fa-utensils card-tag"></i>
+        <% end %>
+        <% if tag.name == "quiet" %>
+          <i class="fas fa-volume-mute card-tag"></i>
+        <% end %>
+        <% if tag.name == "social" %>
+          <i class="fas fa-user-friends card-tag"></i>
+        <% end %>
+      <% end %>
+    </p>
     <p><i class="far fa-clock"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
   </div>
 </div>
