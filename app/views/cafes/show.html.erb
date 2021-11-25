@@ -65,7 +65,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <h3>HOPEFULLY YOU'LL SEE A PRETTY FORM HERE!</h3>
+          <% @cafe.chairs.each do |chair| %>
+            <%= render 'reservation_form', chair: chair, reservation: @reservation %>
+          <% end %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>

@@ -17,7 +17,8 @@ class Chair < ApplicationRecord
     while day <= created_at.end_of_month.day
       hour = cafe.opening_hour
       while hour < cafe.closing_hour
-        generate_four_slots(year, month, day, hour)
+        datetime = DateTime.new(year, month, day, hour, 0, 0)
+        TimeSlot.create!(chair: self, duration: 60, start_time: datetime)
         hour += 1
       end
       day += 1
@@ -32,17 +33,11 @@ class Chair < ApplicationRecord
     while day <= x.end_of_month.day
       hour = cafe.opening_hour
       while hour < cafe.closing_hour
-        generate_four_slots(year, month, day, hour)
+        datetime = DateTime.new(year, month, day, hour, 0, 0)
+        TimeSlot.create!(chair: self, duration: 60, start_time: datetime)
         hour += 1
       end
       day += 1
-    end
-  end
-
-  def generate_four_slots(year, month, day, hour)
-    [0, 15, 30, 45].each do |min|
-      datetime = DateTime.new(year, month, day, hour, min, 0)
-      TimeSlot.create!(chair: self, duration: 15, start_time: datetime)
     end
   end
 end
