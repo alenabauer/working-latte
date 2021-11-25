@@ -1,23 +1,25 @@
 // Specific CSS for your home-page
-.container {
-  padding: 10px;
+.form-container {
+  padding: 20px;
   background-color: white;
   border-radius: 16px;
+  text-align: center;
+  box-shadow: 1px 1px 4px rgba($color: #000000, $alpha: 0.5);
 }
 
-.introduction {
-  padding: 10px 0 0 10px;
-}
-
-.form-control {
-  margin: 0 auto;
-  width: 90%;
-  border-radius: 10px;
+.introduction p {
   font-size: 12px;
 }
 
+.form-control {
+  width: 100%;
+  border-radius: 10px;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
 .button-container {
-  text-align: center;
+  // text-align: center;
   margin: 16px 0;
 }
 
@@ -25,7 +27,7 @@
   background-color: $green-blue;
   color: white;
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
   margin-bottom: 0;
   border: none;
   p {
