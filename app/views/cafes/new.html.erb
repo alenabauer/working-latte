@@ -40,13 +40,23 @@
                           as: :file,
                           input_html: { multiple: true } %>
             </div>
-            <div class="tag">
-            <span>
-                <%= f.association :tags,
-                            as: :grouped_multi_select_input,
-                            scope: Category
-                            # input_html: {  class: 'multiselect' } %>
-                            </span>
+            <div class="form-group col-6">
+
+              <%= f.association :tags,
+                  as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item',
+                  collection: Tag.all,
+                  label_method: :name,
+                  value_method: :id,
+                  include_blank: false %>
+              <%# <%= f.input  :tags,
+                            as: :radio_buttons,
+                            collection_wrapper_tag: 'div',
+                            collection_wrapper_class: 'category-wrapper',
+                            item_wrapper_class: 'category-item',
+                            input_html: {class: 'category-selector'},
+                            collection: Tag::CATEGORIES %>
             </div>
         </div>
 
