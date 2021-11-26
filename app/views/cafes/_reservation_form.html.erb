@@ -10,7 +10,7 @@
     "data-update-time-slots-target" => "dateInput"
   }  %>
   <%= f.association :time_slots,
-    collection: chair.time_slots.where("start_time > ?", Time.now).where("start_time < ?", Date.tomorrow),
+    collection: chair.time_slots.where("start_time > ?", Date.tomorrow).where("start_time < ?", Date.tomorrow + 1),
     label_method: :to_label,
     value_method: :id,
     as: :check_boxes,
