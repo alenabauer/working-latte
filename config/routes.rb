@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
 
-  resources :cafes, only: [:index, :show, :new, :create ]
+  resources :cafes, only: [:index, :show, :new, :create ] do
+    # member do
+    # end
+  end
+
+  get '/chairs/:id/fetch_time_slots', to: 'chairs#fetch_time_slots'
 
   resources :chairs do
     resources :reservations, only: :create
@@ -10,6 +15,5 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'dashboard#show_user'
 
-  get 'chairs/:id/fetch_time_slots', to: 'chairs#fetch_time_slots'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

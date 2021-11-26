@@ -2,7 +2,7 @@
   url: chair_reservations_path(chair),
   html: { data: {
     controller: 'update-time-slots',
-    ajax_request_url: "chairs/#{chair.id}/fetch_time_slots"
+    update_time_slots_url: "/chairs/#{chair.id}/fetch_time_slots"
   } } do |f|
 %>
   <%= f.input :date, as: :date, label: false, value: params[:date], input_html: {
