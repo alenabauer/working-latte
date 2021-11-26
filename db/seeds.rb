@@ -65,6 +65,8 @@ cafe1 = Cafe.create!({
 cafe1.photos.attach(io: cafe1_image1, filename: "#{cafe1.name}1.jpg", content_type: 'image/jpg')
 cafe1.photos.attach(io: cafe1_image2, filename: "#{cafe1.name}2.jpg", content_type: 'image/jpg')
 
+Chair.create!(cafe: cafe1)
+
 cafe2 = Cafe.create!({
   name: "The Swing",
   address: "Sankt Apern Str 10, Cologne",
@@ -76,6 +78,8 @@ cafe2 = Cafe.create!({
 
 cafe2.photos.attach(io: cafe2_image1, filename: "#{cafe2.name}1.jpg", content_type: 'image/jpg')
 cafe2.photos.attach(io: cafe2_image2, filename: "#{cafe2.name}2.jpg", content_type: 'image/jpg')
+
+Chair.create!(cafe: cafe2)
 
 cafe3 = Cafe.create!({
   name: "Kaffeesaurus",
@@ -90,6 +94,8 @@ cafe3.photos.attach(io: cafe3_image1, filename: "#{cafe3.name}1.jpg", content_ty
 cafe3.photos.attach(io: cafe3_image2, filename: "#{cafe3.name}2.jpg", content_type: 'image/jpg')
 cafe3.photos.attach(io: cafe3_image3, filename: "#{cafe3.name}3.jpg", content_type: 'image/jpg')
 
+Chair.create!(cafe: cafe3)
+
 cafe4 = Cafe.create!({
   name: "hommage Cafe",
   address: "Friesenstrasse 73, Cologne",
@@ -100,6 +106,8 @@ cafe4 = Cafe.create!({
 })
 
 cafe4.photos.attach(io: cafe4_image1, filename: "#{cafe4.name}1.jpg", content_type: 'image/jpg')
+
+Chair.create!(cafe: cafe4)
 
 cafe5 = Cafe.create!({
   name: "Cafe Riese Koln",
@@ -113,6 +121,8 @@ cafe5 = Cafe.create!({
 cafe5.photos.attach(io: cafe5_image1, filename: "#{cafe5.name}1.jpg", content_type: 'image/jpg')
 cafe5.photos.attach(io: cafe5_image2, filename: "#{cafe5.name}2.jpg", content_type: 'image/jpg')
 
+Chair.create!(cafe: cafe5)
+
 cafe6 = Cafe.create!({
   name: "Kaffee & Kuchen",
   address: "Venloer Strasse 19, Cologne",
@@ -123,6 +133,8 @@ cafe6 = Cafe.create!({
 })
 
 cafe6.photos.attach(io: cafe6_image1, filename: "#{cafe6.name}1.jpg", content_type: 'image/jpg')
+
+Chair.create!(cafe: cafe6)
 
 cafe7 = Cafe.create!({
   name: "THE COFFEE GANG",
@@ -136,6 +148,8 @@ cafe7 = Cafe.create!({
 cafe7.photos.attach(io: cafe7_image1, filename: "#{cafe7.name}1.jpg", content_type: 'image/jpg')
 cafe7.photos.attach(io: cafe7_image2, filename: "#{cafe7.name}2.jpg", content_type: 'image/jpg')
 
+Chair.create!(cafe: cafe7)
+
 cafe8 = Cafe.create!({
   name: "Fassbender",
   address: "Obenmarspforten 7, Cologne",
@@ -147,6 +161,8 @@ cafe8 = Cafe.create!({
 
 cafe8.photos.attach(io: cafe8_image1, filename: "#{cafe8.name}1.jpg", content_type: 'image/jpg')
 cafe8.photos.attach(io: cafe8_image2, filename: "#{cafe8.name}2.jpg", content_type: 'image/jpg')
+
+Chair.create!(cafe: cafe8)
 
 puts "Cafes created!"
 
