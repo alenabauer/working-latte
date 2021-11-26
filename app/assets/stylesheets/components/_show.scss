@@ -99,13 +99,18 @@ body {
   border-radius: 8px;
 }
 
-// .modal-position {
-//   position: absolute;
-//   top: 20%;
-// }
+.modal-position {
+  position: absolute;
+  top: 20%;
+}
 .my-modal-dialog {
   border-radius: 8px;
   margin-bottom: 16px;
+  background-color: $light;
+}
+.my-modal-title {
+  font-family: 'Poppins', sans-serif;
+  padding: 0 32px;
 }
 .my-modal-content {
   border-radius: inherit;

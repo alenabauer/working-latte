@@ -1,11 +1,31 @@
-#my-reservation-time-slots {
-  background: green;
-  .form-check .form-check-input {
-    position: absolute;
-    transform: scale(0);
-  }
-}
 
 .reservation-btn {
   border: none;
+}
+
+.timeslot-item {
+  display: inline-block;
+}
+
+.timeslot-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.timeslot-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.1rem 0.5rem;
+  background-color: white;
+  color: $dark-brown;
+  box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .5);
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.timeslot-selector:checked + label {
+  background-color: $beige;
+  color: white;
 }

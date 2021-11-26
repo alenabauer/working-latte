@@ -10,14 +10,16 @@
     "data-update-time-slots-target" => "dateInput"
   }  %>
   <%= f.association :time_slots,
-    collection: chair.time_slots.where("start_time > ?", Time.now).where("start_time < ?", Date.tomorrow),
+    collection: chair.time_slots.where("start_time > ?", Date.tomorrow).where("start_time < ?", Date.tomorrow + 1),
     label_method: :to_label,
     value_method: :id,
     as: :check_boxes,
     id: "my-reservation-time-slots",
     input_html: {
-      "data-update-time-slots-target" => "slot"
-    }
+      "data-update-time-slots-target" => "slot",
+      class: "timeslot-selector",
+    },
+    item_wrapper_class: 'timeslot-item'
   %>
-  <%= f.submit "Book!", class: "form-submit-btn reservation-btn" %>
+  <%= f.submit "Book!", class: "btn book-btn" %>
 <% end %>
