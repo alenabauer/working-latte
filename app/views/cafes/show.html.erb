@@ -28,13 +28,13 @@
   <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
   <label for="tab3">Menu</label>
   <!-- Tab 4 -->
-  <input type="radio" name="tabset" id="tab4" aria-controls="review-tab">
-  <label for="tab4">Reviews</label>
+  <%# <input type="radio" name="tabset" id="tab4" aria-controls="review-tab">
+  <label for="tab4">Reviews</label> %>
 
 
   <div class="tab-panels">
     <section id="info" class="tab-panel">
-      <h2>Cafe info</h2>
+      <h2>Café info</h2>
         <div class="tags-ul">
           <% @cafe.tags.each do |tag| %>
       <div class="d-flex">
@@ -53,11 +53,11 @@
       <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
       <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
     </section>
-    <section id="review-tab" class="tab-panel">
+    <%# <section id="review-tab" class="tab-panel">
       <h2>See what our (working)Latte-lovers think!</h2>
       <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
       <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
-    </section>
+    </section> %>
 
     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
 
