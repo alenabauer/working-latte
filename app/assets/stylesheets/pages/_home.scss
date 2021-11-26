@@ -33,7 +33,7 @@
 .home-search {
   background-color: $green-blue;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   width: 100%;
   margin-bottom: 0;
   border: none;
@@ -43,4 +43,27 @@
     margin-bottom: 0;
     padding: 6px 12px;
   }
+}
+
+.card-block {
+    max-height: 250px;
+    min-width: 250px;
+    margin-right: 5px;
+    padding: 16px;
+    border-radius: 8px;
+    background: $beige;
+    opacity: .9;
+    box-shadow: 1px 1px 4px rgba($color: #000000, $alpha: 0.5);
+    padding-bottom: 0px;
+    p {
+      color: white;
+      font-size: 14px;
+      margin: 15px 0px;
+
+    }
+    img {
+      width: 80%;
+      height: 80%;
+      margin: 0 auto;
+    }
 }
