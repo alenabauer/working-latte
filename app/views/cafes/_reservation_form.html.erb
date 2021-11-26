@@ -16,8 +16,10 @@
     as: :check_boxes,
     id: "my-reservation-time-slots",
     input_html: {
-      "data-update-time-slots-target" => "slot"
-    }
+      "data-update-time-slots-target" => "slot",
+      class: "timeslot-selector",
+    },
+    item_wrapper_class: 'timeslot-item'
   %>
-  <%= f.submit "Book!", class: "form-submit-btn reservation-btn" %>
+  <%= f.submit "Book!", class: "btn book-btn" %>
 <% end %>
