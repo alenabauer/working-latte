@@ -1,6 +1,9 @@
 <%# Lines below are the picture carrousel with the cafe images %>
 <div class="header">
-<div class="show-images">
+  <div class="info">
+    <h2 class=cafe-name> <%= @cafe.name %>  </h2>
+  </div>
+  <div class="show-images">
       <% if @cafe.photos.attached? %>
       <%= render 'caroussel', cafe: @cafe %>
           <%# <% @cafe.photos.each do |photo| %>
@@ -12,29 +15,26 @@
     </div>
 
 
-<div class="info">
-  <h2 class=cafe-name> <%= @cafe.name %>  </h2>
-</div>
 
 
-<div class="tabset">
-  <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tab1" aria-controls="info" checked>
-  <label for="tab1">Info</label>
-  <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tab2" aria-controls="map">
-  <label for="tab2">Map</label>
-  <!-- Tab 3 -->
-  <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
-  <label for="tab3">Menu</label>
-  <!-- Tab 4 -->
-  <%# <input type="radio" name="tabset" id="tab4" aria-controls="review-tab">
-  <label for="tab4">Reviews</label> %>
+  <div class="tabset">
+    <!-- Tab 1 -->
+    <input type="radio" name="tabset" id="tab1" aria-controls="info" checked>
+    <label for="tab1">Info</label>
+    <!-- Tab 2 -->
+    <input type="radio" name="tabset" id="tab2" aria-controls="map">
+    <label for="tab2">Map</label>
+    <!-- Tab 3 -->
+    <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+    <label for="tab3">Menu</label>
+    <!-- Tab 4 -->
+    <%# <input type="radio" name="tabset" id="tab4" aria-controls="review-tab">
+    <label for="tab4">Reviews</label> %>
 
 
   <div class="tab-panels">
     <section id="info" class="tab-panel">
-      <h2>Café info</h2>
+      <h3>Café info</h3>
         <div class="tags-ul">
           <% @cafe.tags.each do |tag| %>
       <div class="d-flex">
@@ -45,12 +45,12 @@
         </div>
     </section>
       <section id="map" class="tab-panel">
-        <h2>Where are we located?</h2>
+        <h3>Where are we located?</h3>
         <p><strong>Address: </strong> <%= @cafe.address %> </p>
         <%= render 'map', markers: @markers %>
       </section>
     <section id="menu" class="tab-panel">
-      <h2>See what's on our menu!</h2>
+      <h3>See what's on our menu!</h3>
       <%# if @cafe.meu.attached? %>
           <%# @cafe.menu do |menu| %>
             <%#= image_tag menu  %>
