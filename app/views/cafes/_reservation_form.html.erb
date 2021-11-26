@@ -1,5 +1,23 @@
-<%= simple_form_for [chair, reservation], url: chair_reservations_path(chair) do |f| %>
-  <%= f.input :date, as: :date, label: false %>
-  <%= f.association :time_slots, collection: chair.time_slots.select { |slot| slot.start_time.year == 2021 && slot.start_time.month == 11 && slot.start_time.day == 28 }, label_method: :to_label, value_method: :id, as: :check_boxes, id: "my-reservation-time-slots" %>
+<%= simple_form_for [chair, reservation],
+  url: chair_reservations_path(chair),
+  html: { data: {
+    controller: 'update-time-slots',
+    ajax_request_url: "chairs/#{chair.id}/fetch_time_slots"
+  } } do |f|
+%>
+  <%= f.input :date, as: :date, label: false, value: params[:date], input_html: {
+    "data-action" => "change->update-time-slots#sendRequest",
+    "data-update-time-slots-target" => "dateInput"
+  }  %>
+  <%= f.association :time_slots,
+    collection: chair.time_slots.where("start_time > ?", Time.now).where("start_time < ?", Date.tomorrow),
+    label_method: :to_label,
+    value_method: :id,
+    as: :check_boxes,
+    id: "my-reservation-time-slots",
+    input_html: {
+      "data-update-time-slots-target" => "slot"
+    }
+  %>
   <%= f.submit "Book!", class: "form-submit-btn reservation-btn" %>
 <% end %>
