@@ -24,6 +24,8 @@ class CafesController < ApplicationController
   def show
     @cafe = Cafe.find(params[:id])
     @reservation = Reservation.new
+
+    @markers = [{ lat: @cafe.latitude, lng: @cafe.longitude }]
   end
 
   def create
