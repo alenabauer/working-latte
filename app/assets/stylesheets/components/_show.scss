@@ -2,6 +2,7 @@
  CSS for the main interaction
 */
 .show-images img {
+  object-fit: cover;
   width:100%;
   height: 250px;
 }
@@ -36,11 +37,13 @@ body {
 
 .tabset > label {
   padding: 4px 16px;
-  border-radius: 8px;
+  width: 32%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
-  color: $dark-brown;
+  color: $beige;
 }
 
 .tabset > label:hover,
@@ -55,7 +58,7 @@ body {
 }
 
 .tabset > input:checked + label {
-  background-color: #7B4B28;
+  background-color: #DFB99D;
   color: white;
 }
 
@@ -141,4 +144,14 @@ body {
   &:focus {
     color: white;
   }
+}
+
+.no-menu {
+  object-fit: cover;
+  width:50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
 }

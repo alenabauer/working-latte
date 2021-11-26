@@ -38,7 +38,7 @@ Gemfile.lock
 yarn-debug.log*
 .yarn-integrity
 # Ignore .env file containing credentials.
-# Gemfile.lock
+Gemfile.lock
 .env*
 # Ignore Mac and Linux file system files
 *.swp
