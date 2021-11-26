@@ -1,0 +1,17 @@
+<%= link_to cafe_path(reservation.chair.cafe) do %>
+  <div class="dashboard-reservation-card">
+    <div class="dashboard-reservation-date">
+      <p class="dashboard-reservation-date-day"><%= reservation.date.day %></p>
+      <p><%= reservation.date.strftime('%b').upcase %></p>
+    </div>
+    <div class="dashboard-reservation-card-inner">
+      <div>
+        <p class="dashboard-reservation-cafe"><%= reservation.chair.cafe.name %></p>
+        <p class="dashboard-reservation-time"><%= reservation.start_time.hour %>:00 - <%= reservation.end_time.hour %>:00</p>
+      </div>
+      <div class="image-cropper">
+        <%= image_tag reservation.chair.cafe.photos.first %>
+      </div>
+    </div>
+  </div>
+<% end %>

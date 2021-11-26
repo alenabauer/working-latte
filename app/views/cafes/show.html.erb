@@ -62,20 +62,18 @@
     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
 
     <div class="modal fade modal-position" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog my-modal-dialog" role="document">
+      <div class="modal-content my-modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Book your spot at <%= @cafe.name %> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close my-close-btn" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <h3>HOPEFULLY YOU'LL SEE A PRETTY FORM HERE!</h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary ">Save</button>
+          <% @cafe.chairs.each do |chair| %>
+            <%= render 'reservation_form', chair: chair, reservation: @reservation %>
+          <% end %>
         </div>
       </div>
     </div>

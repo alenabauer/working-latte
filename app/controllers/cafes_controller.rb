@@ -23,6 +23,7 @@ class CafesController < ApplicationController
 
   def show
     @cafe = Cafe.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def create
@@ -34,6 +35,10 @@ class CafesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def add_chair
+    Chair.create(cafe: Cafe.find(params[:id]))
   end
 
   private

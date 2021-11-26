@@ -1,0 +1,5 @@
+<%= simple_form_for [chair, reservation], url: chair_reservations_path(chair) do |f| %>
+  <%= f.input :date, as: :date, label: false %>
+  <%= f.association :time_slots, collection: chair.time_slots.select { |slot| slot.start_time.year == 2021 && slot.start_time.month == 11 && slot.start_time.day == 28 }, label_method: :to_label, value_method: :id, as: :check_boxes, id: "my-reservation-time-slots" %>
+  <%= f.submit "Book!", class: "form-submit-btn reservation-btn" %>
+<% end %>
