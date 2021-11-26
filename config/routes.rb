@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'dashboard#show_user'
+
+  get 'chairs/:id/fetch_time_slots', to: 'chairs#fetch_time_slots'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
