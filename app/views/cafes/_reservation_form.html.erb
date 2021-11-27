@@ -1,6 +1,7 @@
 <%= simple_form_for [chair, reservation],
   url: chair_reservations_path(chair),
   html: { data: {
+    remote: true,
     controller: 'update-time-slots',
     update_time_slots_url: "/chairs/#{chair.id}/fetch_time_slots"
   } } do |f|
@@ -10,7 +11,7 @@
     "data-update-time-slots-target" => "dateInput"
   }  %>
   <%= f.association :time_slots,
-    collection: chair.time_slots.where("start_time > ?", Date.tomorrow).where("start_time < ?", Date.tomorrow + 1),
+    collection: available_slots,
     label_method: :to_label,
     value_method: :id,
     as: :check_boxes,

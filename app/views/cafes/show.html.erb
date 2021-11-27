@@ -73,7 +73,9 @@
         </div>
         <div class="modal-body">
           <% @cafe.chairs.each do |chair| %>
-            <%= render 'reservation_form', chair: chair, reservation: @reservation %>
+            <div id="reservation-form-wrapper">
+              <%= render 'reservation_form', chair: chair, reservation: @reservation, available_slots: chair.time_slots.where("start_time > ?", Time.now).where("start_time < ?", Date.tomorrow) %>
+            </div>
           <% end %>
         </div>
       </div>

@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ["dateInput", "slot" ];
 
   connect() {
-    console.log("Hello from Stimulus Controller.")
+    console.log("Hello from Stimulus Controller.");
+    console.log(this.slotTargets)
   }
 
   sendRequest(event) {
@@ -15,8 +16,16 @@ export default class extends Controller {
     const day = this.dateInputTargets[2].value;
     const url = `${this.data.get('url')}?year=${year}&month=${month}&day=${day}`;
 
-    fetch(url, { headers: { 'Accept': "application/json" } })
+    const myRequest = new Request(url, {
+      method: 'GET',
+      contentType: "application/json",
+      cache: 'default',
+    });
+
+    fetch(myRequest)
       .then(response => response.json())
-      .then((data) => { console.log(data) });
+      .then((data) => {
+        console.log(data);
+      });
   }
 }

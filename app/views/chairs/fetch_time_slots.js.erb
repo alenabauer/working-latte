@@ -1,0 +1,2 @@
+console.log("this js is working");
+document.querySelector("#reservation-form-wrapper").html("<%= escape_javascript render 'reservation_form', chair: @chair, reservation: Reservation.new, available_slots: @time_slots %>");
