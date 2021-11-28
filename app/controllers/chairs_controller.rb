@@ -10,7 +10,7 @@ class ChairsController < ApplicationController
     respond_to do |format|
       format.json { render json: @time_slots }
       format.html { render template: false }
-      format.js { render template: 'fetch_time_slots.js.erb' }
+      format.js { render template: 'chairs/fetch_time_slots.js.erb', layout: false }
     end
   end
 end

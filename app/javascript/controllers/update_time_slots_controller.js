@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
 
-  static targets = ["dateInput", "slot" ];
+  static targets = ["dateInput", "collection", "slot" ];
 
   connect() {
     console.log("Hello from Stimulus Controller.");
@@ -26,6 +26,12 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         console.log(data);
+        let html = "";
+        $.each(data, function (key, value) {
+          const start_time = new Date(value.start_time)
+          html += `<div class="timeslot-item"><input class="form-check-input check_boxes optional timeslot-selector" type="checkbox" value="${value.id}" name="reservation[time_slot_ids][]" id="reservation_time_slot_ids_${value.id}"><label class ="form-check-label collection_check_boxes" for="reservation_time_slot_ids_${value.id}">${start_time.getHours()}:00</label></div>`;
+        });
+        $('#time-slot-selection').html(html);
       });
   }
 }
