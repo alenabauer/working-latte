@@ -6,7 +6,7 @@
     <p class="user-name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
     <h2>My Reservations</h2>
     <% if current_user.reservations.count > 0 %>
-      <% current_user.reservations.each do |reservation| %>
+      <% current_user.reservations.order(:date).each do |reservation| %>
         <%= render 'reservation_card', reservation: reservation %>
       <% end %>
       <% else %>
