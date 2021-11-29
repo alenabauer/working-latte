@@ -1,8 +1,9 @@
 <div class="card-cafe" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
   <div class="card-cafe-top">
-    <p>
-      <%# <i class="fas fa-shoe-prints"></i> 700 m %>
-    </p>
+    <%# <p></p><i class="fas fa-shoe-prints"></i> 700 m</p> %>
+    <% unless cafe.reviews.empty? %>
+      <p><i class='fas fa-star'></i> <%= cafe.avg_rating.round(1) %></p>
+    <% end %>
     <h3><%= cafe.name %></h3>
   </div>
   <div class="card-cafe-bottom">

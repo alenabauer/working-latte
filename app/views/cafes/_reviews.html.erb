@@ -1,0 +1,33 @@
+<% unless reviews.empty? %>
+  <ul class="list-group">
+    <% reviews.each do |review| %>
+      <li class="list-group-item review-info">
+        <% review.rating.times do %>
+          <i class='fas fa-star'></i>
+        <% end %>
+        <% if review.rating < 5 %>
+          <% num = 5 - review.rating %>
+          <% num.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        <% end %>
+        <br>
+        <em><%= review.content %></em>
+        <br>
+        <span class="small opacity-50"><%= review.created_at.strftime("%b %d, %Y") %></span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="text-center"><em><%= cafe.name %> has no reviews yet.</em></p>
+<% end %>
+
+<% if user_recent_reservation %>
+  <hr class="mt-2 mb-3"/>
+  <p class="small text-center">You worked in <%= cafe.name %> on <%= user_recent_reservation.date.strftime("%B %d, %Y") %>. Would you like to leave a review?</p>
+  <%= simple_form_for [user_recent_reservation, new_review], url: reviews_path(user_recent_reservation) do |f| %>
+    <%= f.input :content, as: :text, placeholder: "Describe your experience...", label: false %>
+    <%= f.input :rating, collection: (1..5).to_a, label: false %>
+    <%= f.submit "Send your review!", class: "btn book-btn send-review-btn" %>
+  <% end %>
+<% end %>

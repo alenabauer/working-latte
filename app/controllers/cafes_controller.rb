@@ -8,6 +8,14 @@ class CafesController < ApplicationController
   def index
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
+    elsif params[:near_me].present?
+      if Rails.env.development?
+        my_location = "Mediapark, Cologne"
+        results = Geocoder.search(my_location)
+        @cafes = Cafe.near(results.first.coordinates, 1)
+      else
+        @cafes = Cafe.near(request.location.coordinates, 4)
+      end
     else
       @cafes = Cafe.all
     end
@@ -23,6 +31,12 @@ class CafesController < ApplicationController
   def show
     @cafe = Cafe.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
+    @user_recent_reservation = Reservation.select do |r|
+      r.cafe == @cafe && r.user == current_user
+      # && r.date < Time.now
+    end.last
+    @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
     @markers = [{ lat: @cafe.latitude, lng: @cafe.longitude }]
   end
