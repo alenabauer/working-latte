@@ -27,8 +27,8 @@
     <%= form_tag cafes_path, method: :get do %>
       <%= hidden_field_tag :near_me, value: true %>
       <div class="button-container">
-        <%= button_tag(type: "submit", class: "home-search") do %>
-          <p>Find cafés near me!</p>
+        <%= button_tag(type: "submit", class: "location-search") do %>
+          <p><i class="fas fa-location-arrow"></i>  Find cafés near me!</p>
         <% end %>
       </div>
     <% end %>
