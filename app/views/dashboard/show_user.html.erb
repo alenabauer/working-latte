@@ -1,9 +1,11 @@
 <div class="dashboard-container">
   <div class="user-info">
-    <%# <% if current_user.profile.present? %>
-      <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /> %>
-    <%# <% else %>
+    <div class="intro-dashboard">
+    <% if current_user.avatar.attached? %>
+      <%= image_tag current_user.avatar, class: "avatar"%>
+    <% end%>
     <p class="user-name"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
+    </div>
     <h2>My Reservations</h2>
     <% if current_user.reservations.count > 0 %>
       <% current_user.reservations.order(:date).each do |reservation| %>

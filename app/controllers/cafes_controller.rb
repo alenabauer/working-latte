@@ -59,7 +59,7 @@ class CafesController < ApplicationController
   private
 
   def cafe_params
-    params.require(:cafe).permit(:name, :address, :opening_hour, :closing_hour, :description, photos: [])
+    params.require(:cafe).permit(:name, :address, :opening_hour, :closing_hour, :description, photos: [], menus: [])
   end
 
   def create_cafe_tags
