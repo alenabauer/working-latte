@@ -11,6 +11,7 @@ Tag.destroy_all
 ReservationTimeSlot.destroy_all
 TimeSlot.destroy_all
 Chair.destroy_all
+Reservation.destroy_all
 Cafe.destroy_all
 User.destroy_all
 

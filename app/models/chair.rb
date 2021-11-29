@@ -1,6 +1,6 @@
 class Chair < ApplicationRecord
   belongs_to :cafe
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_many :time_slots
 
   after_create :create_time_slots
