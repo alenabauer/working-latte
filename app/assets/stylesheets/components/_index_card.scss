@@ -23,13 +23,13 @@
   }
   .card-cafe-top {
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: baseline;
     z-index: 2;
     h3 {
       width: 60%;
       font-weight: 700;
-      text-align: right;
+      text-align: left;
       color: $light;
     }
   }
