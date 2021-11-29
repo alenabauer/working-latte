@@ -56,6 +56,18 @@ class CafesController < ApplicationController
     Chair.create(cafe: Cafe.find(params[:id]))
   end
 
+  def favorite_cafe
+    @cafe = Cafe.find(params[:id])
+    current_user.favorite(@cafe)
+    redirect_to @cafe
+  end
+
+  def unfavorite_cafe
+    @cafe = Cafe.find(params[:id])
+    current_user.unfavorite(@cafe)
+    redirect_to @cafe
+  end
+
   private
 
   def cafe_params

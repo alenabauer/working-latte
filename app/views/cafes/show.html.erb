@@ -2,13 +2,22 @@
 <div class="header">
   <div class="show-images">
       <% if @cafe.photos.attached? %>
-      <%= render 'caroussel', cafe: @cafe %>
+        <%= render 'caroussel', cafe: @cafe %>
           <%# <% @cafe.photos.each do |photo| %>
             <%#= image_tag photo  %>
           <%# end %>
         <% else  %>
           <p>NO PHOTOS ATTACHED</p>
         <% end %>
+      <% if current_user.favorited?(@cafe) == false %>
+        <%= link_to favorite_cafe_path do %>
+          <i class="fas fa-bookmark"></i>
+        <% end %>
+      <% else %>
+        <%= link_to unfavorite_cafe_path do %>
+          <i class="fas fa-bookmark favorited"></i>
+        <% end %>
+      <% end %>
     </div>
 
   <div class="info">
@@ -34,11 +43,11 @@
     <section id="info" class="tab-panel">
         <div class="tags-ul">
           <% @cafe.tags.each do |tag| %>
-      <div class="d-flex">
-          <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
-      </div>
+            <div class="d-flex">
+                <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
+            </div>
           <% end %>
-      <p><strong>Overview:</strong> <%= @cafe.description %></p>
+        <p><strong>Overview:</strong> <%= @cafe.description %></p>
         </div>
     </section>
       <section id="map" class="tab-panel">
