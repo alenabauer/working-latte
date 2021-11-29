@@ -6,6 +6,20 @@
   width:100%;
   height: 250px;
 }
+
+.show-images i {
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
+  bottom: 40px;
+  left: 130px;
+  font-weight: bolder;
+}
+
+.favorited {
+  font-weight: bold !important;
+}
+
 .tabset > input[type="radio"] {
   position: absolute;
   left: -200vw;

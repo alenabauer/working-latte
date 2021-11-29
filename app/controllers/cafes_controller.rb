@@ -6,7 +6,6 @@ class CafesController < ApplicationController
   end
 
   def index
-
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
     else
@@ -41,6 +40,18 @@ class CafesController < ApplicationController
 
   def add_chair
     Chair.create(cafe: Cafe.find(params[:id]))
+  end
+
+  def favorite_cafe
+    @cafe = Cafe.find(params[:id])
+    current_user.favorite(@cafe)
+    redirect_to @cafe
+  end
+
+  def unfavorite_cafe
+    @cafe = Cafe.find(params[:id])
+    current_user.unfavorite(@cafe)
+    redirect_to @cafe
   end
 
   private
