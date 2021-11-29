@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   get '/dashboard', to: 'dashboard#show_user'
-  get '/bookmarks', to: 'bookmarks#index'
+  get '/favorites', to: 'favorites#index'
   get '/cafes/:id/favorites', to: 'cafes#favorite_cafe', as: :favorite_cafe
   get '/cafes/:id/unfavorite', to: 'cafes#unfavorite_cafe', as: :unfavorite_cafe
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
