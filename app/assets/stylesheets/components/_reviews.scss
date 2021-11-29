@@ -1,0 +1,24 @@
+.send-review-btn {
+  background-color: $beige;
+  border: none;
+}
+
+.review_rating {
+  margin-top: -0.6em;
+  .br-widget {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.review-info {
+  i {
+      color: $green-blue
+    }
+}
+
+#reviews {
+  ul {
+    border-radius: 8px;
+  }
+}

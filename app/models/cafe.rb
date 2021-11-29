@@ -6,6 +6,7 @@ class Cafe < ApplicationRecord
   has_many :chairs
   has_many :time_slots, through: :chairs
   has_many :reservations, through: :chairs
+  has_many :reviews, through: :reservations
   has_many_attached :photos
 
   validates :name, presence: true
@@ -19,6 +20,7 @@ class Cafe < ApplicationRecord
 
   acts_as_favoritable
 
+
   def self.having_time_slot_on(date)
     Cafe.joins(:chairs).joins(:time_slots).where("date_trunc('day', start_time)::date = ?", date).distinct
   end
@@ -30,5 +32,17 @@ class Cafe < ApplicationRecord
     end
     # p free_slots
     free_slots.any?
+  end
+
+  after_create :create_chairs
+
+  def create_chairs
+    5.times do
+      Chair.create!(cafe: self)
+    end
+  end
+
+  def avg_rating
+    reviews.map(&:rating).sum / reviews.count.to_f
   end
 end
