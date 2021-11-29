@@ -9,6 +9,14 @@ class CafesController < ApplicationController
 
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
+    elsif params[:near_me].present?
+      if Rails.env.development?
+        my_location = "Mediapark, Cologne"
+        results = Geocoder.search(my_location)
+        @cafes = Cafe.near(results.first.coordinates, 1)
+      else
+        @cafes = Cafe.near(request.location.coordinates, 4)
+      end
     else
       @cafes = Cafe.all
     end

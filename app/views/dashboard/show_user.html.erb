@@ -9,7 +9,7 @@
       <% current_user.reservations.order(:date).each do |reservation| %>
         <%= render 'reservation_card', reservation: reservation %>
       <% end %>
-      <% else %>
+    <% else %>
       <p>No reservations yet.</p>
     <% end %>
   </div>
