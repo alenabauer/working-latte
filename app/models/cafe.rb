@@ -8,6 +8,7 @@ class Cafe < ApplicationRecord
   has_many :reservations, through: :chairs
   has_many :reviews, through: :reservations
   has_many_attached :photos
+  has_many_attached :menus
 
   validates :name, presence: true
   validates :address, presence: true
