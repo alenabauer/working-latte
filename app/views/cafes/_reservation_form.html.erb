@@ -1,25 +1,28 @@
 <%= simple_form_for [chair, reservation],
   url: chair_reservations_path(chair),
   html: { data: {
+    remote: true,
     controller: 'update-time-slots',
-    ajax_request_url: "chairs/#{chair.id}/fetch_time_slots"
+    update_time_slots_url: "/chairs/#{chair.id}/fetch_time_slots"
   } } do |f|
 %>
   <%= f.input :date, as: :date, label: false, value: params[:date], input_html: {
     "data-action" => "change->update-time-slots#sendRequest",
     "data-update-time-slots-target" => "dateInput"
   }  %>
-  <%= f.association :time_slots,
-    collection: chair.time_slots.where("start_time > ?", Date.tomorrow).where("start_time < ?", Date.tomorrow + 1),
-    label_method: :to_label,
-    value_method: :id,
-    as: :check_boxes,
-    id: "my-reservation-time-slots",
-    input_html: {
-      "data-update-time-slots-target" => "slot",
-      class: "timeslot-selector",
-    },
-    item_wrapper_class: 'timeslot-item'
-  %>
+  <div id="time-slot-selection" data-update-time-slots-target="collection">
+    <%= f.association :time_slots,
+      collection: chair.time_slots.where("start_time > ?", Time.now).where("start_time < ?", Date.tomorrow),
+      label_method: :to_label,
+      value_method: :id,
+      as: :check_boxes,
+      id: "my-reservation-time-slots",
+      input_html: {
+        class: "timeslot-selector",
+        data_update_time_slots_target: "slot"
+      },
+      item_wrapper_class: 'timeslot-item'
+    %>
+  </div>
   <%= f.submit "Book!", class: "btn book-btn" %>
 <% end %>
