@@ -6,9 +6,11 @@ class CafesController < ApplicationController
   end
 
   def index
-
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
+    elsif params[:date].present?
+      cafes = Cafe.all.select { |cafe| cafe.free_time_slots?(params[:date]) }
+      @cafes = Cafe.where(id: cafes.map(&:id))
     else
       @cafes = Cafe.all
     end
