@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :cafes
   has_many :reservations
   has_many :reviews
+  has_one_attached :avatar
 
   validates :first_name, presence: true
   validates :last_name, presence: true
