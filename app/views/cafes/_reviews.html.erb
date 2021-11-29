@@ -13,6 +13,8 @@
         <% end %>
         <br>
         <em><%= review.content %></em>
+        <br>
+        <span class="small"><%= review.created_at.strftime("%B %d, %Y") %></span>
       </li>
     <% end %>
   </ul>
