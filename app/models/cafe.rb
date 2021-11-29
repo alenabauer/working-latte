@@ -6,6 +6,7 @@ class Cafe < ApplicationRecord
   has_many :chairs
   has_many :time_slots, through: :chairs
   has_many :reservations, through: :chairs
+  has_many :reviews, through: :reservations
   has_many_attached :photos
 
   validates :name, presence: true
@@ -18,4 +19,16 @@ class Cafe < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   acts_as_favoritable
+
+  after_create :create_chairs
+
+  def create_chairs
+    5.times do
+      Chair.create!(cafe: self)
+    end
+  end
+
+  def avg_rating
+    reviews.map(&:rating).sum / reviews.count.to_f
+  end
 end

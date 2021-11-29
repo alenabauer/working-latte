@@ -31,6 +31,12 @@ class CafesController < ApplicationController
   def show
     @cafe = Cafe.find(params[:id])
     @reservation = Reservation.new
+    @review = Review.new
+    @user_recent_reservation = Reservation.select do |r|
+      r.cafe == @cafe && r.user == current_user
+      # && r.date < Time.now
+    end.last
+    @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
     @markers = [{ lat: @cafe.latitude, lng: @cafe.longitude }]
   end

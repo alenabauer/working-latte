@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
 
-  resources :cafes, only: [:index, :show, :new, :create ] do
-    # member do
-    # end
+  resources :cafes, only: [:index, :show, :new, :create ]
+
+  resources :reservations, only: [] do
+    member do
+      resources :reviews, only: :create
+    end
   end
 
   get '/chairs/:id/fetch_time_slots', to: 'chairs#fetch_time_slots'
