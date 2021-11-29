@@ -2,13 +2,22 @@
 <div class="header">
   <div class="show-images">
       <% if @cafe.photos.attached? %>
-      <%= render 'caroussel', cafe: @cafe %>
+        <%= render 'caroussel', cafe: @cafe %>
           <%# <% @cafe.photos.each do |photo| %>
             <%#= image_tag photo  %>
           <%# end %>
         <% else  %>
           <p>NO PHOTOS ATTACHED</p>
         <% end %>
+      <% if current_user.favorited?(@cafe) == false %>
+        <%= link_to favorite_cafe_path do %>
+          <i class="fas fa-bookmark"></i>
+        <% end %>
+      <% else %>
+        <%= link_to unfavorite_cafe_path do %>
+          <i class="fas fa-bookmark favorited"></i>
+        <% end %>
+      <% end %>
     </div>
 
   <div class="info">
@@ -34,11 +43,11 @@
     <section id="info" class="tab-panel">
         <div class="tags-ul">
           <% @cafe.tags.each do |tag| %>
-      <div class="d-flex">
-          <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
-      </div>
+            <div class="d-flex">
+                <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
+            </div>
           <% end %>
-      <p><strong>Overview:</strong> <%= @cafe.description %></p>
+        <p><strong>Overview:</strong> <%= @cafe.description %></p>
         </div>
     </section>
       <section id="map" class="tab-panel">
@@ -58,16 +67,20 @@
       <%= render 'reviews', reviews: @all_reviews, cafe: @cafe, user_recent_reservation: @user_recent_reservation, new_review: @review %>
     </section>
 
-    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
+    <% if user_signed_in? %>
+      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
+    <% else %>
+      <%= link_to 'Book!', new_user_session_path, class: "btn book-btn" %>
+    <% end %>
 
     <div class="modal fade modal-position" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog my-modal-dialog" role="document">
       <div class="modal-content my-modal-content">
         <div class="modal-header">
           <h5 class="modal-title my-modal-title" id="exampleModalLabel">Book your spot at <%= @cafe.name %> </h5>
-          <button type="button" class="close my-close-btn" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <button type="button" class="close my-close-btn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
           <div id="reservation-form-wrapper">

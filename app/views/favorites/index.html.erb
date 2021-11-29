@@ -1,0 +1,16 @@
+<h2 class="favorites-title">Favorites</h2>
+  <% if @cafes.length == 0 %>
+    <p>No favorites yet.</p>
+  <% else %>
+    <% @cafes.each do |cafe| %>
+      <div class="card-favorites" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
+      <div class="card-upper">
+        <h3><%= cafe.name %></h3>
+      </div>
+      <div class="card-lower">
+        <p><%= cafe.address %></p>
+        <p><i class="far fa-clock"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
