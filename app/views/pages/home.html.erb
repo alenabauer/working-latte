@@ -16,18 +16,14 @@
             placeholder: "Enter a city"
          %>
       </div>
-      <div class="date" data-provide="datepicker">
-      <%= form_with model: Cafe do |f|%>
-        <div class="time">
+      <div>
+      <%= form_with model: Cafe, authenticity_token: true do |f|%>
             <%= f.text_field :date,
-      data: {
-        controller: "flatpickr",
-        flatpickr_alt_format: t("date.formats.long"),
-        flatpickr_alt_input: true,
-        flatpickr_min_date: Time.zone.now,
-        disableMobile: "true"
-      } %>
-
+              data: {
+                controller: "flatpickr",
+                flatpickr_alt_format: t("date.formats.long"),
+                flatpickr_min_date: Time.zone.now
+              } %>
         </div>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "home-search") do %>
