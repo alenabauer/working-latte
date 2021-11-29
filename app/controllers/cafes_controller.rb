@@ -8,11 +8,9 @@ class CafesController < ApplicationController
   def index
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
-<<<<<<< HEAD
     elsif params[:date].present?
       cafes = Cafe.all.select { |cafe| cafe.free_time_slots?(params[:date]) }
       @cafes = Cafe.where(id: cafes.map(&:id))
-=======
     elsif params[:near_me].present?
       if Rails.env.development?
         my_location = "Mediapark, Cologne"
@@ -21,7 +19,6 @@ class CafesController < ApplicationController
       else
         @cafes = Cafe.near(request.location.coordinates, 4)
       end
->>>>>>> master
     else
       @cafes = Cafe.all
     end
