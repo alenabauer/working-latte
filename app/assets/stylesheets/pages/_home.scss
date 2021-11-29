@@ -19,10 +19,12 @@
 }
 
 .form-control {
-  width: 100%;
+  width: 50%;
   border-radius: 8px;
   font-size: 14px;
   margin: 0 auto;
+  float:left;
+  overflow:hidden;
 }
 
 
@@ -44,6 +46,14 @@
     margin-bottom: 0;
     padding: 6px 12px;
   }
+}
+
+
+.flatpickr {
+  float:left;
+  width: 50%;
+  overflow:hidden;
+  border-radius: 8px;
 }
 
 .card-block {
