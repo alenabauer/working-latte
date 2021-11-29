@@ -1,5 +1,8 @@
 <% if params[:location].present? %>
   <h2 class="text-center index-heading">Cafes in <%= params[:location].capitalize %> </h2>
+<% elsif params[:near_me].present? %>
+  <h2 class="text-center index-heading">Cafés near me </h2>
+
 <% else %>
   <h2>All cafes</h2>
 <% end %>
