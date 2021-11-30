@@ -7,11 +7,15 @@ class CafesController < ApplicationController
 
   def index
     if params[:location].present?
+      session[:location] = params[:location]
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
-    elsif params[:date].present?
-      cafes = Cafe.all.select { |cafe| cafe.free_time_slots?(params[:date]) }
-      @cafes = Cafe.where(id: cafes.map(&:id))
+      if params[:date].present?
+         session[:date] = params[:date]
+         cafes = @cafes.select { |cafe| cafe.free_time_slots?(params[:date]) }
+         @cafes = Cafe.where(id: cafes.map(&:id))
+      end
     elsif params[:near_me].present?
+      session[:near_me] = params[:near_me]
       if Rails.env.development?
         my_location = "Mediapark, Cologne"
         results = Geocoder.search(my_location)
@@ -22,7 +26,6 @@ class CafesController < ApplicationController
     else
       @cafes = Cafe.all
     end
-
     @markers = @cafes.geocoded.map do |cafe|
       {
         lat: cafe.latitude,
@@ -42,6 +45,9 @@ class CafesController < ApplicationController
     @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
     @markers = [{ lat: @cafe.latitude, lng: @cafe.longitude }]
+    if session[:near_me] == "true"
+      session[:location] = ""
+    end
   end
 
   def create
