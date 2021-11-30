@@ -6,6 +6,7 @@ class CafesController < ApplicationController
   end
 
   def index
+    raise
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
     elsif params[:date].present?
