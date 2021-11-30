@@ -17,7 +17,7 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="dropdown-item" href="#">
-        <%= form_tag 'cafes', :method => :get do %>
+        <%= form_tag cafes_path, :method => :get do %>
           <% Tag.all.each do |tag| %>
             <div class="tag-dropdown">
               <%= check_box_tag tag.name, tag.name%>
