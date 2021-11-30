@@ -3,19 +3,18 @@
   <div class="show-images">
       <% if @cafe.photos.attached? %>
         <%= render 'caroussel', cafe: @cafe %>
-          <%# <% @cafe.photos.each do |photo| %>
-            <%#= image_tag photo  %>
-          <%# end %>
-        <% else  %>
+      <% else  %>
           <p>NO PHOTOS ATTACHED</p>
-        <% end %>
-      <% if current_user.favorited?(@cafe) == false %>
-        <%= link_to favorite_cafe_path do %>
-          <i class="fas fa-bookmark"></i>
-        <% end %>
-      <% else %>
-        <%= link_to unfavorite_cafe_path do %>
-          <i class="fas fa-bookmark favorited"></i>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.favorited?(@cafe) == false %>
+          <%= link_to favorite_cafe_path do %>
+            <i class="fas fa-bookmark"></i>
+          <% end %>
+        <% else %>
+          <%= link_to unfavorite_cafe_path do %>
+            <i class="fas fa-bookmark favorited"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>

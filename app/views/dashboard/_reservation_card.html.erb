@@ -1,17 +1,20 @@
-<%= link_to cafe_path(reservation.chair.cafe) do %>
-  <div class="dashboard-reservation-card">
-    <div class="dashboard-reservation-date">
-      <p class="dashboard-reservation-date-day"><%= reservation.date.day %></p>
-      <p><%= reservation.date.strftime('%b').upcase %></p>
-    </div>
-    <div class="dashboard-reservation-card-inner">
-      <div>
-        <p class="dashboard-reservation-cafe"><%= reservation.chair.cafe.name %></p>
-        <p class="dashboard-reservation-time"><%= reservation.start_time.hour %>:00 - <%= reservation.end_time.hour %>:00</p>
-      </div>
-      <div class="image-cropper">
-        <%= image_tag reservation.chair.cafe.photos.first %>
-      </div>
-    </div>
+<div class="dashboard-reservation-card">
+  <div class="dashboard-reservation-date">
+    <p class="dashboard-reservation-date-day"><%= reservation.date.day %></p>
+    <p><%= reservation.date.strftime('%b').upcase %></p>
   </div>
-<% end %>
+  <div class="dashboard-reservation-card-inner">
+    <div>
+      <p class="dashboard-reservation-cafe"><%= reservation.chair.cafe.name %></p>
+      <p class="dashboard-reservation-time"><%= reservation.start_time.hour %>:00 - <%= reservation.end_time.hour %>:00</p>
+      <div class="dashboard-btns">
+        <i class="fas fa-qrcode"></i>
+        <i class="fas fa-map-marked-alt"></i>
+      </div>
+    </div>
+    <div class="image-cropper">
+      <%= image_tag reservation.chair.cafe.photos.first %>
+    </div>
+    <%= link_to 'Cancel this reservation', cancel_reservation_path(reservation), method: 'delete', data: { confirm: 'Are you sure you want to cancel this reservation?', class: "reservation-cancel-link" } %>
+  </div>
+</div>
