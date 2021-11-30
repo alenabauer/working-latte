@@ -17,5 +17,10 @@ import "bootstrap"
 import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
-  initStarRating()
+  initStarRating();
+  document.querySelectorAll(".dashboard-reservation-card-inner").forEach(element => {
+    element.addEventListener('click', (e) => {
+      e.currentTarget.classList.toggle('card-opened')
+    })
+  })
 })
