@@ -11,10 +11,10 @@ class ReservationsController < ApplicationController
     @reservation.start_time = Time.new(@time_slots.first.start_time.year, @time_slots.first.start_time.month, @time_slots.first.start_time.day, @time_slots.first.start_time.hour, 0, 0)
     @reservation.end_time = Time.new(@time_slots.last.start_time.year, @time_slots.last.start_time.month, @time_slots.last.start_time.day, @time_slots.last.start_time.hour + 1, 0, 0)
     if @reservation.save
-      create_reservation_time_slots
+      create_reservation_time_slotsd
       redirect_to dashboard_path, notice: 'Your reservation was successful.'
     else
-      # render
+      redirect_to cafe_path(@reservation.cafe)
     end
   end
 
