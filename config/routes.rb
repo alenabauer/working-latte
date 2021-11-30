@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :reservations, only: :create
   end
 
+  delete '/reservations/:id', to: 'reservations#destroy', as: :cancel_reservation
+
   get '/dashboard', to: 'dashboard#show_user'
   get '/favorites', to: 'favorites#index'
   get '/cafes/:id/favorites', to: 'cafes#favorite_cafe', as: :favorite_cafe
