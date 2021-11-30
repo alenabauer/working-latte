@@ -50,9 +50,11 @@ class CafesController < ApplicationController
     tags_array << @vegan if params["vegan"].present?
     @food = Tag.find_by(name:"food") if params["food"].present?
     tags_array << @food if params["food"].present?
+    tags_array_converted = Tag.where(id: tags_array.map(&:id))
 
-    @cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array) } if tags_array != []
-    #raise
+    @cafes = Cafe.joins(:cafe_tags).joins(:tags).where(tags: tags_array_converted).uniq if tags_array != []
+    # @cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array) } if tags_array != []
+    # raise
   end
 
   def show
