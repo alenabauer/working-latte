@@ -21,6 +21,20 @@ class Cafe < ApplicationRecord
 
   acts_as_favoritable
 
+
+  def self.having_time_slot_on(date)
+    Cafe.joins(:chairs).joins(:time_slots).where("date_trunc('day', start_time)::date = ?", date).distinct
+  end
+
+  def free_time_slots?(date)
+    ts = time_slots.where("date_trunc('day', start_time)::date = ?", date)
+    free_slots = ts.select do |time_slot|
+      time_slot.reservation_time_slots.empty?
+    end
+    # p free_slots
+    free_slots.any?
+  end
+
   after_create :create_chairs
 
   def create_chairs
