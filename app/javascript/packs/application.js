@@ -16,6 +16,24 @@ import "controllers"
 import "bootstrap"
 import { initStarRating } from '../plugins/init_star_rating';
 
+import { Application } from 'stimulus'
+import { definitionsFromContext } from 'stimulus/webpack-helpers'
+
+// import Flatpickr
+import Flatpickr from 'stimulus-flatpickr'
+
+const application = Application.start()
+const context = require.context('../controllers', true, /\.js$/)
+
+application.load(definitionsFromContext(context))
+
+
+// Import style for flatpickr
+require("flatpickr/dist/flatpickr.css")
+
+// Manually register Flatpickr as a stimulus controller
+application.register('flatpickr', Flatpickr)
+
 document.addEventListener('turbolinks:load', () => {
   initStarRating();
   document.querySelectorAll(".dashboard-reservation-card-inner").forEach(element => {
