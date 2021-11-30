@@ -10,6 +10,26 @@
   <div class="index-search-bar"></div>
   <div class="index-filter-btn"><i class="fas fa-filter filter-tag"></i> Filter</div>
 </div> %>
+<div class="filters">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle dropdown-filters" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-filter"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-item" href="#">
+        <%= form_tag 'cafes', :method => :get do %>
+          <% Tag.all.each do |tag| %>
+            <div class="tag-dropdown">
+              <%= check_box_tag tag.name, tag.name%>
+              <%= label_tag tag.name %>
+            </div>
+          <% end %>
+          <%= submit_tag 'Apply', class:"apply-filters" %>
+        <% end %>
+      </a>
+    </div>
+  </div>
+</div>
 
 <div class="tabset" id="index-tabset">
   <!-- Tab 1 -->

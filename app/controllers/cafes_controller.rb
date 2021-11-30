@@ -33,6 +33,26 @@ class CafesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { cafe: cafe })
       }
     end
+
+    #implement filters from show page  -  depending on checked tags
+    # create separate if / else statements for the query depending on the params (tag?)
+    # join tables?
+    #  if params[:query].present?
+    #iterate over the tags array, for each tag -> the list of cafes that we find -> iterate over again and show in the index
+    tags_array = []
+    @quiet = Tag.find_by(name:"quiet") if params["quiet"].present?
+    tags_array << @quiet if params["quiet"].present?
+    @pet = Tag.find_by(name:"pet friendly") if params["pet friendly"].present?
+    tags_array << @pet if params["pet friendly"].present?
+    @social = Tag.find_by(name:"social") if params["social"].present?
+    tags_array << @social if params["social"].present?
+    @vegan = Tag.find_by(name:"vegan") if params["vegan"].present?
+    tags_array << @vegan if params["vegan"].present?
+    @food = Tag.find_by(name:"food") if params["food"].present?
+    tags_array << @food if params["food"].present?
+
+    @cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array) } if tags_array != []
+    #raise
   end
 
   def show
