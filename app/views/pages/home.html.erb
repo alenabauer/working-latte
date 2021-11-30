@@ -7,6 +7,7 @@
     <% end %>
     <p>Where would you like to work?</p>
   </div>
+
   <div class="seach-container">
     <%= form_with url: cafes_path, authenticity_token: true, method: 'get' do |f|%>
       <div class="home-search-fields">
@@ -37,7 +38,7 @@
   </div>
   <div class="cafe-near">
     <%= form_tag cafes_path, method: :get do %>
-      <%= hidden_field_tag :near_me, value: true %>
+      <%= hidden_field_tag :near_me, "true" %>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "location-search") do %>
           <p><i class="fas fa-location-arrow"></i>  Find cafés near me!</p>
