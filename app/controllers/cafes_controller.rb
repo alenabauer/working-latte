@@ -26,7 +26,8 @@ class CafesController < ApplicationController
     @markers = @cafes.geocoded.map do |cafe|
       {
         lat: cafe.latitude,
-        lng: cafe.longitude
+        lng: cafe.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { cafe: cafe })
       }
     end
   end
@@ -41,7 +42,10 @@ class CafesController < ApplicationController
     end.last
     @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
-    @markers = [{ lat: @cafe.latitude, lng: @cafe.longitude }]
+    @markers = [{ lat: @cafe.latitude,
+                  lng: @cafe.longitude,
+                  info_window: render_to_string(partial: "info_window", locals: { cafe: @cafe })
+                }]
   end
 
   def create
