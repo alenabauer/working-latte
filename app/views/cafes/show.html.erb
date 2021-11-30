@@ -3,19 +3,18 @@
   <div class="show-images">
       <% if @cafe.photos.attached? %>
         <%= render 'caroussel', cafe: @cafe %>
-          <%# <% @cafe.photos.each do |photo| %>
-            <%#= image_tag photo  %>
-          <%# end %>
-        <% else  %>
+      <% else  %>
           <p>NO PHOTOS ATTACHED</p>
-        <% end %>
-      <% if current_user.favorited?(@cafe) == false %>
-        <%= link_to favorite_cafe_path do %>
-          <i class="fas fa-bookmark"></i>
-        <% end %>
-      <% else %>
-        <%= link_to unfavorite_cafe_path do %>
-          <i class="fas fa-bookmark favorited"></i>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.favorited?(@cafe) == false %>
+          <%= link_to favorite_cafe_path do %>
+            <i class="fas fa-bookmark"></i>
+          <% end %>
+        <% else %>
+          <%= link_to unfavorite_cafe_path do %>
+            <i class="fas fa-bookmark favorited"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -55,13 +54,14 @@
         <%= render 'map', markers: @markers %>
       </section>
     <section id="menu" class="tab-panel">
-      <%# if @cafe.meu.attached? %>
-          <%# @cafe.menu do |menu| %>
-            <%#= image_tag menu  %>
-          <%# end %>
-        <%# else  %>
-          <%= image_tag "cafe2.png", alt: "no menu submitted img", height: 450, width:300%>
-        <%# end %>
+      <% if @cafe.menus.attached? %>
+        <% @cafe.menus.each do |menu| %>
+            <%= image_tag menu, class:"menu"  %>
+            <%# <img class="menu" src="<%= cl_image_path menu.key %>
+        <% end %>
+      <% else  %>
+          <p>No menus available for <%= @cafe.name %> </p>
+      <% end %>
     </section>
     <section id="reviews" class="tab-panel">
       <%= render 'reviews', reviews: @all_reviews, cafe: @cafe, user_recent_reservation: @user_recent_reservation, new_review: @review %>

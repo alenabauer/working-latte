@@ -75,4 +75,39 @@
       height: 100%;
     }
   }
+  .dashboard-btns, a {
+    display: none;
+  }
+}
+
+.dashboard-reservation-card-inner.card-opened {
+  height: 140px;
+  align-items: flex-start;
+  position: relative;
+  .image-cropper {
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .dashboard-btns {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    i {
+      background-color: $beige;
+      padding: 8px;
+      font-size: 24px;
+      color: white;
+      border-radius: 8px;
+    }
+  }
+  a {
+    display: block;
+    position: absolute;
+    bottom: 8px;
+    color: $beige;
+    text-decoration: underline;
+  }
 }
