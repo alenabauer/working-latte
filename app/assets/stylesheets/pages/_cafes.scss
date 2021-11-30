@@ -38,3 +38,34 @@
   text-decoration: none;
   margin: 0;
 }
+
+.dropdown-filters{
+  display: flex;
+  background-color: $beige;
+  border: none;
+  border-radius: 8px;
+  &:active, &:focus, &:checked{
+    background-color: $beige;
+    box-shadow: none;
+    i{
+      color: $dark-brown;
+    }
+  }
+}
+.btn-secondary.dropdown-toggle{
+  background-color: $beige;
+  box-shadow: none;
+}
+.dropdown-menu.show{
+  border-radius: 8px;
+}
+.btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
+  background-color: $beige;
+  box-shadow: none;
+  color: $dark-brown;
+}
+.apply-filters{
+  margin-top: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+}

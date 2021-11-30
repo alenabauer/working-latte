@@ -29,6 +29,9 @@ class CafesController < ApplicationController
         lng: cafe.longitude
       }
     end
+
+    #  if params[:pet_friendly].present?
+    #   @cafes = Cafe.where(" ILIKE ?", "%#{params[:location]}%")
   end
 
   def show
