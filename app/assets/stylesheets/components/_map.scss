@@ -7,10 +7,22 @@
   border-radius: 16px;
   min-height: 60px;
   min-width: 100px;
+  margin: 0;
+  padding: 0px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-size: 12px;
-  margin: 0;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.popup-link {
+  outline: transparent !important;
+  padding: 0px;
+}
+
+.open-hours {
+  padding-bottom: 0px;
 }

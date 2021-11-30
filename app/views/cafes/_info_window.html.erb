@@ -1,5 +1,4 @@
 
-
   <%= link_to cafe_path(cafe), class: "popup-link" do %>
 <div>
     <h4><%= cafe.name %></h4>
@@ -22,14 +21,6 @@
                 <% end %>
               <% end %>
               </p>
-
-
           <p><i class="far fa-clock open-hours"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
-
 </div>
   <% end %>
-
-<%#
-        <%= link_to cafe_path(cafe), class: "card-link" do %>
- <%#          <%= render 'card', cafe: cafe %>
-  <%#       <% end %>
