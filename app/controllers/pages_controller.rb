@@ -9,5 +9,9 @@ class PagesController < ApplicationController
     else
       @cafes = Cafe.near(request.location.coordinates, 4)
     end
+
+    session[:location] = ""
+    session[:date] = ""
+    session[:near_me] = ""
   end
 end

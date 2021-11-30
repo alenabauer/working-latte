@@ -1,18 +1,32 @@
 /*
- CSS for the main interaction
+CSS for the main interaction
 */
+.show-images {
+  position: relative;
+}
+.show-images .back-button .back {
+  color: rgba($color: #FFFFFF, $alpha: 0.8);
+  font-size: 28px;
+  z-index: 1;
+  /* text-align: left; */
+  left: 3%;
+  position: absolute;
+  top: 5%;
+}
+
 .show-images img {
   object-fit: cover;
   width:100%;
   height: 250px;
+  border-radius: 8px;
 }
 
-.show-images i {
+.show-images .favorite {
   font-size: 28px;
-  position: relative;
+  position: absolute;
   z-index: 1;
-  bottom: 40px;
-  left: 130px;
+  bottom: 5%;
+  right: 5%;
   font-weight: bolder;
 }
 
@@ -168,6 +182,7 @@ body {
     color: white;
   }
 }
+
 
 .no-menu {
   object-fit: cover;

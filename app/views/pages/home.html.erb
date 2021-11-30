@@ -7,25 +7,27 @@
     <% end %>
     <p>Where would you like to work?</p>
   </div>
+
   <div class="seach-container">
-    <%= form_tag cafes_path, method: :get do %>
-      <div class="location">
-        <%= text_field_tag :location,
-            params[:location],
-            class: "form-location",
-            placeholder: "Enter a city"
-         %>
-      </div>
+    <%= form_with url: cafes_path, authenticity_token: true, method: 'get' do |f|%>
+      <div class="home-search-fields">
+        <div class="location">
+          <%= f.text_field :location,
+              value: params[:location],
+              class: "form-location",
+              placeholder: "Enter a city"
+           %>
+        </div>
         <div class="date-picker">
-            <%= form_with model: Cafe, authenticity_token: true do |f|%>
-                  <%= f.text_field :date,
-                    data: {
-                      controller: "flatpickr",
-                      dateFormat: "Y-m-d\\Input",
-                      flatpickr_min_date: Time.zone.now,
-                      disableMobile: false,
-                    }
-                    %>
+          <%= f.text_field :date,
+            data: {
+              controller: "flatpickr",
+              flatpickr_date_format: "M d, Y",
+              flatpickr_default_date: Time.zone.now,
+              flatpickr_min_date: Time.zone.now,
+              disable_mobile: true
+            } %>
+        </div>
       </div>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "home-search") do %>
@@ -33,12 +35,10 @@
         <% end %>
       </div>
     <% end %>
-    </div>
-    <% end %>
   </div>
   <div class="cafe-near">
     <%= form_tag cafes_path, method: :get do %>
-      <%= hidden_field_tag :near_me, value: true %>
+      <%= hidden_field_tag :near_me, "true" %>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "location-search") do %>
           <p><i class="fas fa-location-arrow"></i>  Find cafés near me!</p>
