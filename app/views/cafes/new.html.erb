@@ -38,6 +38,7 @@
             <div class="form-group">
               <%= f.input :photos,
                           as: :file,
+                          :label => "Upload café photos",
                           input_html: { multiple: true } %>
             </div>
             <div class="form-group">
@@ -50,6 +51,12 @@
                   label_method: :name,
                   value_method: :id,
                   include_blank: false %>
+            </div>
+            <div class="form-group">
+              <%= f.input :menus,
+                          as: :file,
+                          :label => "Upload menu photos",
+                          input_html: { multiple: true } %>
             </div>
 
         </div>
