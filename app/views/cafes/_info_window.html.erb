@@ -1,0 +1,23 @@
+  <%= link_to cafe_path(cafe), class: "popup-link" do %>
+    <h4><%= cafe.name %></h4>
+
+            <p> <% cafe.tags.each do |tag| %>
+                <% if tag.name == "vegan" %>
+                  <i class="fas fa-leaf card-tag cafe-tags-map"></i>
+                <% end %>
+                <% if tag.name == "pet friendly" %>
+                  <i class="fas fa-dog card-tag cafe-tags-map"></i>
+                <% end %>
+                <% if tag.name == "food" %>
+                  <i class="fas fa-utensils card-tag cafe-tags-map"></i>
+                <% end %>
+                <% if tag.name == "quiet" %>
+                  <i class="fas fa-volume-mute card-tag cafe-tags-map"></i>
+                <% end %>
+                <% if tag.name == "social" %>
+                  <i class="fas fa-user-friends card-tag cafe-tags-map"></i>
+                <% end %>
+              <% end %>
+              </p>
+          <p><i class="far fa-clock open-hours"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
+  <% end %>
