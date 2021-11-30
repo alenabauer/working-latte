@@ -19,14 +19,15 @@
         <i class="fas fa-arrow-circle-left back"></i>
       <% end %>
     <% end %>
-
-    <% if current_user.favorited?(@cafe) == false %>
-      <%= link_to favorite_cafe_path do %>
-        <i class="fas fa-bookmark favorite"></i>
-      <% end %>
-    <% else %>
-      <%= link_to unfavorite_cafe_path do %>
-        <i class="fas fa-bookmark favorite favorited"></i>
+    <% if user_signed_in? %>
+      <% if current_user.favorited?(@cafe) == false %>
+        <%= link_to favorite_cafe_path do %>
+          <i class="fas fa-bookmark favorite"></i>
+        <% end %>
+      <% else %>
+        <%= link_to unfavorite_cafe_path do %>
+          <i class="fas fa-bookmark favorite favorited"></i>
+        <% end %>
       <% end %>
     <% end %>
   </div>
