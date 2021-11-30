@@ -67,16 +67,20 @@
       <%= render 'reviews', reviews: @all_reviews, cafe: @cafe, user_recent_reservation: @user_recent_reservation, new_review: @review %>
     </section>
 
-    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
+    <% if user_signed_in? %>
+      <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn book-btn">Book!</button>
+    <% else %>
+      <%= link_to 'Book!', new_user_session_path, class: "btn book-btn" %>
+    <% end %>
 
     <div class="modal fade modal-position" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog my-modal-dialog" role="document">
       <div class="modal-content my-modal-content">
         <div class="modal-header">
           <h5 class="modal-title my-modal-title" id="exampleModalLabel">Book your spot at <%= @cafe.name %> </h5>
-          <button type="button" class="close my-close-btn" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <button type="button" class="close my-close-btn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
           <div id="reservation-form-wrapper">

@@ -1,7 +1,0 @@
-<h2>Bookmarks</h2>
-<% @cafes.each do |cafe| %>
-  <p><%= cafe.name %></p>
-  <%= link_to cafe_path(cafe), class: "card-link" do %>
-    <%= render 'card', cafe: cafe %>
-  <% end %>
-<% end %>

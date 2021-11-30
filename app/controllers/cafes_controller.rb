@@ -8,6 +8,9 @@ class CafesController < ApplicationController
   def index
     if params[:location].present?
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
+    elsif params[:date].present?
+      cafes = Cafe.all.select { |cafe| cafe.free_time_slots?(params[:date]) }
+      @cafes = Cafe.where(id: cafes.map(&:id))
     elsif params[:near_me].present?
       if Rails.env.development?
         my_location = "Mediapark, Cologne"
@@ -71,7 +74,7 @@ class CafesController < ApplicationController
   private
 
   def cafe_params
-    params.require(:cafe).permit(:name, :address, :opening_hour, :closing_hour, :description, photos: [])
+    params.require(:cafe).permit(:name, :address, :opening_hour, :closing_hour, :description, photos: [], menus: [])
   end
 
   def create_cafe_tags

@@ -12,15 +12,28 @@
       <div class="location">
         <%= text_field_tag :location,
             params[:location],
-            class: "form-control",
+            class: "form-location",
             placeholder: "Enter a city"
          %>
+      </div>
+        <div class="date-picker">
+            <%= form_with model: Cafe, authenticity_token: true do |f|%>
+                  <%= f.text_field :date,
+                    data: {
+                      controller: "flatpickr",
+                      dateFormat: "Y-m-d\\Input",
+                      flatpickr_min_date: Time.zone.now,
+                      disableMobile: false,
+                    }
+                    %>
       </div>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "home-search") do %>
           <p>Find cafés!</p>
         <% end %>
       </div>
+    <% end %>
+    </div>
     <% end %>
   </div>
   <div class="cafe-near">
@@ -41,7 +54,7 @@
 <br>
  <div class="d-flex flex-row flex-nowrap overflow-auto">
       <div class="card card-block mx-2" style="min-width: 300px;">
-        <%= image_tag "/app/assets/images/undraw_location.svg", alt: "location img" %>
+        <%= image_tag "undraw_location.svg", alt: "location img" %>
         <p>Search for cafés in your location</p>
       </div>
       <div class="card card-block mx-2" style="min-width: 300px;">
