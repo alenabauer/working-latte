@@ -51,7 +51,7 @@ class CafesController < ApplicationController
     @food = Tag.find_by(name:"food") if params["food"].present?
     tags_array << @food if params["food"].present?
 
-    @cafes = @cafes.select { |cafe| cafe.tags.include?(tags_array) } if tags_array != []
+    @cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array) } if tags_array != []
     #raise
   end
 
