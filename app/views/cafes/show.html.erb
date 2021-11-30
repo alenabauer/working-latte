@@ -97,7 +97,7 @@
         </div>
         <div class="modal-body">
           <div id="reservation-form-wrapper">
-            <%= render 'reservation_form', chair: @cafe.chairs.sort { |chair| chair.time_slots.count }.first, reservation: @reservation %>
+            <%= render 'reservation_form', chair: @chair, reservation: @reservation %>
           </div>
         </div>
       </div>
