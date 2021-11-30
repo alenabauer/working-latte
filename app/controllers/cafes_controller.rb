@@ -59,17 +59,15 @@ class CafesController < ApplicationController
 
   def show
     @cafe = Cafe.find(params[:id])
+    @chair = @cafe.chairs.max { |chair| chair.time_slots.reject { |ts| Reservation.where(time_slot: ts) }.count }
     @reservation = Reservation.new
     @review = Review.new
     @user_recent_reservation = Reservation.select do |r|
-      r.cafe == @cafe && r.user == current_user
-      # && r.date < Time.now
+      r.cafe == @cafe && r.user == current_user && r.date < Time.now
     end.last
     @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
-    if session[:near_me] == "true"
-      session[:location] = ""
-    end
+    session[:location] = "" if session[:near_me] == "true"
 
     @markers = [{ lat: @cafe.latitude,
                   lng: @cafe.longitude,

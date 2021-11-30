@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
       create_reservation_time_slots
       redirect_to dashboard_path, notice: 'Your reservation was successful.'
     else
-      # render
+      redirect_to cafe_path(@reservation.cafe)
     end
   end
 
