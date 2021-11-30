@@ -8,23 +8,25 @@
     <p>Where would you like to work?</p>
   </div>
   <div class="seach-container">
-    <%= form_with url: cafes_path, authenticity_token: true, method: 'get', class: 'home-search-form' do |f|%>
-      <div class="location">
-        <%= f.text_field :location,
-            value: params[:location],
-            class: "form-location",
-            placeholder: "Enter a city"
-         %>
-      </div>
-      <div class="date-picker">
-        <%= f.text_field :date,
-          data: {
-            controller: "flatpickr",
-            flatpickr_date_format: "M d, Y",
-            flatpickr_default_date: Time.zone.now,
-            flatpickr_min_date: Time.zone.now,
-            disable_mobile: true
-          } %>
+    <%= form_with url: cafes_path, authenticity_token: true, method: 'get' do |f|%>
+      <div class="home-search-fields">
+        <div class="location">
+          <%= f.text_field :location,
+              value: params[:location],
+              class: "form-location",
+              placeholder: "Enter a city"
+           %>
+        </div>
+        <div class="date-picker">
+          <%= f.text_field :date,
+            data: {
+              controller: "flatpickr",
+              flatpickr_date_format: "M d, Y",
+              flatpickr_default_date: Time.zone.now,
+              flatpickr_min_date: Time.zone.now,
+              disable_mobile: true
+            } %>
+        </div>
       </div>
       <div class="button-container">
         <%= button_tag(type: "submit", class: "home-search") do %>

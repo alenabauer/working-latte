@@ -1,0 +1,36 @@
+.home-search-fields {
+  display: flex;
+  justify-content: space-between;
+  .location {
+    width: 55%;
+    input {
+      width: 100%;
+      height: 2.5em;
+      border: 3px solid hsla(185, 77%, 44%, .5);
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-right: none;
+      padding-left: 8px;
+      color: $dark-gray;
+      &:focus {
+        border: none;
+      }
+    }
+  }
+  .date-picker {
+    width: 45%;
+    input {
+      width: 100%;
+      height: 2.5em;
+      text-align: center;
+      border: 3px solid hsla(185, 77%, 44%, .5);
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-left: 1px solid hsla(185, 77%, 44%, .3);
+      color: $dark-gray;
+      &:focus {
+        border: none;
+      }
+    }
+  }
+}
