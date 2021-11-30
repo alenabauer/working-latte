@@ -1,0 +1,26 @@
+.message-container {
+  h2 {
+    margin: 20px 0;
+  }
+  .cafes {
+    margin-top: 20px;
+  }
+
+  .error-image {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+
+  }
+}
+
+.error-message {
+  .error-title {
+    font-size: 72px;
+    margin-top: 20px;
+  }
+  h2 {
+    margin: 0;
+  }
+}

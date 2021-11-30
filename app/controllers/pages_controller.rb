@@ -14,4 +14,10 @@ class PagesController < ApplicationController
     session[:date] = ""
     session[:near_me] = ""
   end
+
+  def error404
+  end
+
+  def error500
+  end
 end
