@@ -1,23 +1,36 @@
 <%# Lines below are the picture carrousel with the cafe images %>
 <div class="header">
   <div class="show-images">
-      <% if @cafe.photos.attached? %>
-        <%= render 'caroussel', cafe: @cafe %>
-      <% else  %>
-          <p>NO PHOTOS ATTACHED</p>
+    <% if @cafe.photos.attached? %>
+      <%= render 'caroussel', cafe: @cafe %>
+        <%# <% @cafe.photos.each do |photo| %>
+          <%#= image_tag photo  %>
+        <%# end %>
+    <% else  %>
+      <p>NO PHOTOS ATTACHED</p>
+    <% end %>
+
+    <% if session[:location].present? %>
+      <%= link_to cafes_path(location: session[:location], date: session[:date]), class: "back-button" do %>
+        <i class="fas fa-arrow-circle-left back"></i>
       <% end %>
-      <% if user_signed_in? %>
-        <% if current_user.favorited?(@cafe) == false %>
-          <%= link_to favorite_cafe_path do %>
-            <i class="fas fa-bookmark"></i>
-          <% end %>
-        <% else %>
-          <%= link_to unfavorite_cafe_path do %>
-            <i class="fas fa-bookmark favorited"></i>
-          <% end %>
+    <% else %>
+      <%= link_to cafes_path(near_me: session[:near_me]), class: "back-button" do %>
+        <i class="fas fa-arrow-circle-left back"></i>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.favorited?(@cafe) == false %>
+        <%= link_to favorite_cafe_path do %>
+          <i class="fas fa-bookmark favorite"></i>
+        <% end %>
+      <% else %>
+        <%= link_to unfavorite_cafe_path do %>
+          <i class="fas fa-bookmark favorite favorited"></i>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
   <div class="info">
     <h2 class=cafe-name> <%= @cafe.name %>  </h2>
