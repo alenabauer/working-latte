@@ -1,26 +1,22 @@
-.message-container {
-  h2 {
-    margin: 20px 0;
-  }
-  .cafes {
-    margin-top: 20px;
-  }
 
-  .error-image {
-    width: 100%;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-
-  }
+.error-action {
+  margin: 20px 0;
+  font-family: $body-font;
+}
+.cafes {
+  margin-top: 20px;
 }
 
-.error-message {
-  .error-title {
+.error-image {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+
+}
+
+.error-message h1 {
     font-size: 72px;
     margin-top: 20px;
-  }
-  h2 {
-    margin: 0;
-  }
+    margin-bottom: -15px;
 }
