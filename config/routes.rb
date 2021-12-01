@@ -22,7 +22,5 @@ Rails.application.routes.draw do
   get '/favorites', to: 'favorites#index'
   get '/cafes/:id/favorites', to: 'cafes#favorite_cafe', as: :favorite_cafe
   get '/cafes/:id/unfavorite', to: 'cafes#unfavorite_cafe', as: :unfavorite_cafe
-  get '/404.html', to: 'pages#error404'
-  get '/500.html', to: 'pages#error500'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
