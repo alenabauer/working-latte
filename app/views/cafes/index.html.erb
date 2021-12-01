@@ -18,6 +18,14 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="dropdown-item">
         <%= form_tag cafes_path, method: 'get', class: 'filter-form' do %>
+        <% if @location.present? %>
+          <%= hidden_field_tag :location, @location %>
+            <% if @date.present? %>
+              <%= hidden_field_tag :date, @date %>
+            <% end %>
+        <% elsif @nearme.present? %>
+          <% hidden_field_tag :near_me, @nearme %>
+        <% end %>
           <% Tag.all.each do |tag| %>
             <div class="tag-dropdown">
               <%= check_box_tag tag.name, tag.name, false, class: "timeslot-selector" %>

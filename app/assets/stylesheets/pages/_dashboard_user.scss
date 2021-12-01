@@ -75,7 +75,7 @@
       height: 100%;
     }
   }
-  .dashboard-btns, a {
+  .dashboard-btns, a.reservation-cancel-link {
     display: none;
   }
 }
@@ -103,7 +103,7 @@
       border-radius: 8px;
     }
   }
-  a {
+  a.reservation-cancel-link {
     display: block;
     position: absolute;
     bottom: 8px;
