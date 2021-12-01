@@ -23,6 +23,7 @@
 }
 
 #index-tabset {
+  margin-top: 60px;
   label {
     width: 49%;
     text-align: center;
@@ -40,28 +41,33 @@
 }
 
 .dropdown-filters{
-  display: flex;
-  background-color: $beige;
+  float: right;
+  background-color: $light;
   border: none;
   border-radius: 8px;
+  i {
+    color: $beige;
+    font-size: 20px;
+  }
   &:active, &:focus, &:checked{
-    background-color: $beige;
-    box-shadow: none;
+    // #background-color: $beige;
+    box-shadow: none !important;
+    background-color: $light;
     i{
       color: $dark-brown;
     }
   }
 }
 .btn-secondary.dropdown-toggle{
-  background-color: $beige;
+  background-color: $dark-brown;
   box-shadow: none;
 }
 .dropdown-menu.show{
   border-radius: 8px;
 }
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-  background-color: $beige;
-  box-shadow: none;
+  background-color: $light;
+  box-shadow: none !important;
   color: $dark-brown;
 }
 .apply-filters{
