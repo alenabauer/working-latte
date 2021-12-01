@@ -8,8 +8,11 @@
       <p class="dashboard-reservation-cafe"><%= reservation.chair.cafe.name %></p>
       <p class="dashboard-reservation-time"><%= reservation.start_time.hour %>:00 - <%= reservation.end_time.hour %>:00</p>
       <div class="dashboard-btns">
-        <i class="fas fa-qrcode"></i>
-        <i class="fas fa-map-marked-alt"></i>
+          <%= link_to cafe_path(reservation.chair.cafe) do %>
+           <i class="fas fa-qrcode"></i>
+            <% end %>
+          <i class="fas fa-map-marked-alt"></i>
+        </div>
       </div>
     </div>
     <div class="image-cropper">
