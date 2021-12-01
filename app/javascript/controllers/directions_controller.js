@@ -25,12 +25,8 @@ export default class extends Controller {
 
     this._addMarkersToMap();
 
-    // this.markersValue.forEach((marker) => {
-    //   marker.lng, marker.lat
-    // })
-
     this._getRoute(center, [this.markersValue[0].lng, this.markersValue[0].lat]);
-    // this._fitMapToMarkers();
+    this._fitMapToRoute(center, [this.markersValue[0].lng, this.markersValue[0].lat]);
   }
 
   errorLocation() {
@@ -52,7 +48,7 @@ export default class extends Controller {
       const customMarker = document.createElement('div');
       customMarker.className = 'marker';
       customMarker.innerHTML = '<i class="fas fa-coffee"></i>';
-      customMarker.style.fontSize = '16px';
+      customMarker.style.fontSize = '24px';
       customMarker.style.textShadow = '1px 1px 2px black';
       customMarker.style.color = '#1AB8C7';
 
@@ -62,9 +58,10 @@ export default class extends Controller {
     });
   }
 
-  _fitMapToMarkers() {
+  _fitMapToRoute(start, end) {
     const bounds = new mapboxgl.LngLatBounds();
-    this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    bounds.extend(start);
+    bounds.extend(end);
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
   }
 
@@ -103,9 +100,9 @@ export default class extends Controller {
         'line-cap': 'round'
       },
       paint: {
-        'line-color': '#3887be',
-        'line-width': 5,
-        'line-opacity': 0.75
+        'line-color': '#1AB8C7',
+        'line-width': 4,
+        'line-opacity': 0.7
       }
     });
     this.map.addLayer({
@@ -129,7 +126,7 @@ export default class extends Controller {
       },
       paint: {
         'circle-radius': 10,
-        'circle-color': '#3887be'
+        'circle-color': '#1AB8C7'
       }
     });
     // add turn instructions here at the end

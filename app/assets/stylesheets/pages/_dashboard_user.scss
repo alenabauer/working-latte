@@ -111,3 +111,15 @@
     text-decoration: underline;
   }
 }
+
+.dashboard-back {
+  display: block;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  font-size: 36px;
+  margin-bottom: -12px;
+  z-index: 3;
+  color: $beige;
+  opacity: 0.6;
+}
