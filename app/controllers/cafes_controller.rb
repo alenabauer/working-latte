@@ -6,16 +6,20 @@ class CafesController < ApplicationController
   end
 
   def index
+
     if params[:location].present?
       session[:location] = params[:location]
+      @location = session[:location]
       @cafes = Cafe.where("address ILIKE ?", "%#{params[:location]}%")
       if params[:date].present?
-         session[:date] = params[:date]
-         cafes = @cafes.select { |cafe| cafe.free_time_slots?(params[:date]) }
-         @cafes = Cafe.where(id: cafes.map(&:id))
+        session[:date] = params[:date]
+        @date = session[:date]
+        cafes = @cafes.select { |cafe| cafe.free_time_slots?(params[:date]) }
+        @cafes = Cafe.where(id: cafes.map(&:id))
       end
     elsif params[:near_me].present?
       session[:near_me] = params[:near_me]
+      @nearme = session[:near_me]
       if Rails.env.development?
         my_location = "Mediapark, Cologne"
         results = Geocoder.search(my_location)
@@ -26,19 +30,7 @@ class CafesController < ApplicationController
     else
       @cafes = Cafe.all
     end
-    @markers = @cafes.geocoded.map do |cafe|
-      {
-        lat: cafe.latitude,
-        lng: cafe.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { cafe: cafe })
-      }
-    end
 
-    #implement filters from show page  -  depending on checked tags
-    # create separate if / else statements for the query depending on the params (tag?)
-    # join tables?
-    #  if params[:query].present?
-    #iterate over the tags array, for each tag -> the list of cafes that we find -> iterate over again and show in the index
     tags_array = []
     @quiet = Tag.find_by(name:"quiet") if params["quiet"].present?
     tags_array << @quiet if params["quiet"].present?
@@ -50,24 +42,38 @@ class CafesController < ApplicationController
     tags_array << @vegan if params["vegan"].present?
     @food = Tag.find_by(name:"food") if params["food"].present?
     tags_array << @food if params["food"].present?
+    tags_array_converted = Tag.where(id: tags_array.map(&:id))
 
-    @cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array) } if tags_array != []
-    #raise
+    cafes = @cafes.joins(:cafe_tags).joins(:tags).where(tags: tags_array_converted).uniq if tags_array != []
+    @cafes = Cafe.where(id: cafes.map(&:id)) if tags_array != []
+
+    @markers = @cafes.geocoded.map do |cafe|
+      {
+        lat: cafe.latitude,
+        lng: cafe.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { cafe: cafe })
+      }
+    end
+    #implement filters from show page  -  depending on checked tags
+    # create separate if / else statements for the query depending on the params (tag?)
+    # join tables?
+    #  if params[:query].present?
+    #iterate over the tags array, for each tag -> the list of cafes that we find -> iterate over again and show in the index
+    #@cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array_converted) } if tags_array_converted != []
+    # raise
   end
 
   def show
     @cafe = Cafe.find(params[:id])
+    @chair = @cafe.chairs.max { |chair| chair.time_slots.reject { |ts| Reservation.where(time_slot: ts) }.count }
     @reservation = Reservation.new
     @review = Review.new
     @user_recent_reservation = Reservation.select do |r|
-      r.cafe == @cafe && r.user == current_user
-      # && r.date < Time.now
+      r.cafe == @cafe && r.user == current_user && r.date < Time.now
     end.last
     @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
-    if session[:near_me] == "true"
-      session[:location] = ""
-    end
+    session[:location] = "" if session[:near_me] == "true"
 
     @markers = [{ lat: @cafe.latitude,
                   lng: @cafe.longitude,
