@@ -12,11 +12,28 @@
 }
 
 .mapboxgl-popup-content {
+  border-radius: 8px !important;
+  background-color: white;
   text-align: center;
   font-size: 12px;
   margin-bottom: 0px;
-  padding-bottom: 0px;
+  padding: 10px 10px 1px;
+  a p{
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+  }
+  h4{
+    margin-top: 10px;
+    font-size: 20px;
+  }
 }
+.mapboxgl-popup-close-button {
+  font-size: 25px;
+  color: $dark-brown;
+}
+
 
 .popup-link {
   outline: transparent !important;
