@@ -29,9 +29,11 @@
   width: 100%;
   background: $green-blue;
   border-radius: 8px;
-  transition: .3s;
   font-weight: 700;
-  color: $light;
+  color: white;
+  &:hover {
+    color: white;
+  }
 }
 
 .btn-text {

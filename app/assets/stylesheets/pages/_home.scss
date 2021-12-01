@@ -44,18 +44,29 @@
   margin: 16px 0;
 }
 
-.home-search {
-  background-color: $green-blue;
-  color: white;
-  border-radius: 8px;
+.book-btn {
+  background-color: #4DB8C7;
+  color:white;
+  border-color: #4DB8C7;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   width: 100%;
-  margin-bottom: 0;
-  border: none;
+  position:sticky;
+  bottom: 15px;
+  text-align: center;
+  border-radius: 10px;
+  &:active {
+    color: white;
+    transform: scale(1.02)
+  }
+  &:focus {
+    color: white;
+  }
+  &:hover {
+    color: white;
+  }
   p {
-    // font-size: 14px;
-    font-weight: 700;
     margin-bottom: 0;
-    padding: 6px 12px;
   }
 }
 

@@ -169,6 +169,7 @@ body {
   color:white;
   border-color: #4DB8C7;
   font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   width: 80%;
   position:sticky;
   bottom: 15px;
@@ -179,6 +180,9 @@ body {
     transform: scale(1.02)
   }
   &:focus {
+    color: white;
+  }
+  &:hover {
     color: white;
   }
 }
