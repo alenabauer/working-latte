@@ -6,7 +6,6 @@ class CafesController < ApplicationController
   end
 
   def index
-
     if params[:location].present?
       session[:location] = params[:location]
       @location = session[:location]
@@ -54,13 +53,6 @@ class CafesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { cafe: cafe })
       }
     end
-    #implement filters from show page  -  depending on checked tags
-    # create separate if / else statements for the query depending on the params (tag?)
-    # join tables?
-    #  if params[:query].present?
-    #iterate over the tags array, for each tag -> the list of cafes that we find -> iterate over again and show in the index
-    #@cafes = @cafes.select { |cafe| cafe.tags.includes(tags_array_converted) } if tags_array_converted != []
-    # raise
   end
 
   def show
@@ -90,6 +82,12 @@ class CafesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def directions
+    @cafe = Cafe.find(params[:id])
+    @markers = [{ lat: @cafe.latitude,
+                  lng: @cafe.longitude }]
   end
 
   def add_chair

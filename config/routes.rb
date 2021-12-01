@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get '/favorites', to: 'favorites#index'
   get '/cafes/:id/favorites', to: 'cafes#favorite_cafe', as: :favorite_cafe
   get '/cafes/:id/unfavorite', to: 'cafes#unfavorite_cafe', as: :unfavorite_cafe
+  get '/cafes/:id/directions', to: 'cafes#directions', as: :directions
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

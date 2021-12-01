@@ -11,7 +11,9 @@
         <%= link_to cafe_path(reservation.chair.cafe) do %>
           <i class="fas fa-store-alt"></i>
         <% end %>
-        <i class="fas fa-map-marked-alt"></i>
+        <%= link_to directions_path(reservation.chair.cafe) do %>
+          <i class="fas fa-map-marked-alt"></i>
+        <% end %>
       </div>
     </div>
     <div class="image-cropper">
