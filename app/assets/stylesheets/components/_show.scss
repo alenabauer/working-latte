@@ -5,7 +5,7 @@ CSS for the main interaction
   position: relative;
 }
 .show-images .back-button .back {
-  color: rgba($color: #FFFFFF, $alpha: 0.8);
+  color: rgba($color: black, $alpha: 0.5);
   font-size: 28px;
   z-index: 1;
   /* text-align: left; */
@@ -19,6 +19,10 @@ CSS for the main interaction
   width:100%;
   height: 250px;
   border-radius: 8px;
+}
+
+.show-images .fave {
+  color: $green-blue;
 }
 
 .show-images .favorite {
@@ -96,8 +100,12 @@ body {
 }
 
 .tab-panel {
-  padding: 16px 0;
+  padding: 24px 0;
   border-top: 1px solid #ccc;
+}
+
+.tab-panel p {
+  text-align: justify;
 }
 
 /*
@@ -116,10 +124,15 @@ body {
 .tabset {
   max-width: 65em;
 }
-.d-flex p {
-  margin-left: 10px;
-  font-size: 12px;
+.tags-ul {
+  padding-left: 0;
+  margin-bottom: 8px;
+  p {
+    margin-left: 10px;
+    font-size: 12px;
+  }
 }
+
 
 .show-page-img {
   width: 100%;
@@ -129,7 +142,6 @@ body {
 }
 
 .modal-position {
-  position: absolute;
   top: 20%;
 }
 .my-modal-dialog {
@@ -153,22 +165,17 @@ body {
   border-radius: 8px;
 }
 
-.tags-ul {
-  padding-left: 0;
-}
 .caroussel-img {
   border-radius: 8px;
 }
 
-.tab-panel p {
-  text-align: justify;
-}
 
 .book-btn {
   background-color: #4DB8C7;
   color:white;
   border-color: #4DB8C7;
   font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   width: 80%;
   position:sticky;
   bottom: 15px;
@@ -181,8 +188,10 @@ body {
   &:focus {
     color: white;
   }
+  &:hover {
+    color: white;
+  }
 }
-
 
 .no-menu {
   object-fit: cover;

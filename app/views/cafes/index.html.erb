@@ -24,7 +24,7 @@
               <%= hidden_field_tag :date, @date %>
             <% end %>
         <% elsif @nearme.present? %>
-          <% hidden_field_tag :near_me, @nearme %>
+          <%= hidden_field_tag :near_me, @nearme %>
         <% end %>
           <% Tag.all.each do |tag| %>
             <div class="tag-dropdown">

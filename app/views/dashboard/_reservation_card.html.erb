@@ -8,16 +8,15 @@
       <p class="dashboard-reservation-cafe"><%= reservation.chair.cafe.name %></p>
       <p class="dashboard-reservation-time"><%= reservation.start_time.hour %>:00 - <%= reservation.end_time.hour %>:00</p>
       <div class="dashboard-btns">
-          <%= link_to cafe_path(reservation.chair.cafe) do %>
-           <i class="fas fa-qrcode"></i>
-            <% end %>
-          <i class="fas fa-map-marked-alt"></i>
-
+        <%= link_to cafe_path(reservation.chair.cafe) do %>
+          <i class="fas fa-store-alt"></i>
+        <% end %>
+        <i class="fas fa-map-marked-alt"></i>
       </div>
     </div>
     <div class="image-cropper">
       <%= image_tag reservation.chair.cafe.photos.first %>
     </div>
-    <%= link_to 'Cancel this reservation', cancel_reservation_path(reservation), method: 'delete', data: { confirm: 'Are you sure you want to cancel this reservation?', class: "reservation-cancel-link" } %>
+    <%= link_to 'Cancel this reservation', cancel_reservation_path(reservation), method: 'delete', class: "reservation-cancel-link", data: { confirm: 'Are you sure you want to cancel this reservation?' } %>
   </div>
 </div>
