@@ -21,11 +21,11 @@
     <% end %>
     <% if user_signed_in? %>
       <% if current_user.favorited?(@cafe) == false %>
-        <%= link_to favorite_cafe_path do %>
+        <%= link_to favorite_cafe_path, class: "fave" do %>
           <i class="fas fa-bookmark favorite"></i>
         <% end %>
       <% else %>
-        <%= link_to unfavorite_cafe_path do %>
+        <%= link_to unfavorite_cafe_path, class: "fave" do %>
           <i class="fas fa-bookmark favorite favorited"></i>
         <% end %>
       <% end %>
@@ -59,8 +59,8 @@
                 <i class="<%=tag.icon%>"></i> <p><%=tag.description%></p>
             </div>
           <% end %>
-        <p><strong>Overview:</strong> <%= @cafe.description %></p>
         </div>
+        <p><strong>Overview:</strong> <%= @cafe.description %></p>
     </section>
       <section id="map" class="tab-panel">
         <p><strong>Address: </strong> <%= @cafe.address %> </p>
