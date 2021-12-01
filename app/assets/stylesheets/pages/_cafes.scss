@@ -75,3 +75,13 @@
   border-radius: 8px;
   border-width: 1px;
 }
+.dropdown-item{
+  background-color: transparent !important;
+}
+
+.tag-dropdown label{
+  width: 100%;
+  text-align: center;
+  background-color: $light;
+  border-radius: 8px;
+}
