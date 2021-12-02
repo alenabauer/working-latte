@@ -30,7 +30,8 @@ export default class extends Controller {
   }
 
   errorLocation() {
-    window.alert("Your location couldn't be detected.")
+    console.log("Location could not be detected.")
+    // window.alert("Your location couldn't be detected.")
   }
 
   connect() {
