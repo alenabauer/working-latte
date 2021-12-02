@@ -122,4 +122,7 @@
   z-index: 3;
   color: $beige;
   opacity: 0.6;
+  &:focus {
+    color: $beige;
+  }
 }
