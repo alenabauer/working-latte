@@ -1,0 +1,8 @@
+<%= link_to dashboard_path, class: "dashboard-back" do %>
+  <i class="fas fa-chevron-circle-left"></i>
+<% end %>
+<div class="index-map"
+  style="height: 600px;"
+  data-controller="directions"
+  data-directions-markers-value="<%= @markers.to_json %>"
+  data-directions-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
