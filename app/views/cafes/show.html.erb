@@ -60,7 +60,7 @@
             </div>
           <% end %>
         </div>
-        <p><strong>Overview:</strong> <%= @cafe.description %></p>
+        <p><%= @cafe.description %></p>
     </section>
       <section id="map" class="tab-panel">
         <p><strong>Address: </strong> <%= @cafe.address %> </p>
@@ -73,7 +73,7 @@
             <%# <img class="menu" src="<%= cl_image_path menu.key %>
         <% end %>
       <% else  %>
-          <p>No menus available for <%= @cafe.name %> </p>
+          <p class="text-center"><em>No menus available for <%= @cafe.name %>.</em></p>
       <% end %>
     </section>
     <section id="reviews" class="tab-panel">
