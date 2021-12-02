@@ -10,13 +10,14 @@ export default class extends Controller {
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: 'mapbox://styles/alenabauer/ckwdpi55b28ty14kobw7pfet0'
-    });
-
-    this._addMarkersToMap();
-    this._fitMapToMarkers();
+    setTimeout(() => {
+      this.map = new mapboxgl.Map({
+        container: this.element,
+        style: 'mapbox://styles/alenabauer/ckwdpi55b28ty14kobw7pfet0'
+      });
+      this._addMarkersToMap();
+      this._fitMapToMarkers();
+     }, 1500);
   }
 
   _addMarkersToMap() {
