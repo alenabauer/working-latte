@@ -70,9 +70,12 @@
   }
 }
 
+.cards-header{
+  margin: 35px 0px;
+}
+
 .card-block {
-    max-height: 250px;
-    min-width: 250px;
+    min-height: 300px;
     margin-right: 5px;
     padding: 16px;
     border-radius: 8px;
@@ -83,7 +86,7 @@
     p {
       color: #7B4B28;
       font-size: 14px;
-      margin: 15px 0px;
+      margin-bottom: 20px;
       font-weight: bolder;
 
     }
