@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Annie+Use+Your+Telescope&family=Barriecito&family=Cabin+Sketch&family=Caveat&family=Contrail+One&family=Emilys+Candy&family=Fredericka+the+Great&family=Grand+Hotel&family=Handlee&family=Indie+Flower&family=Lobster&family=Macondo&family=Megrim&family=Montez&family=Swanky+and+Moo+Moo&family=Yomogi&display=swap');
+
 .navbar-lewagon {
   justify-content: space-between;
   background: $light;
@@ -12,17 +14,24 @@
 
 .navbar-lewagon .navbar-brand {
   display: flex;
-  align-items: baseline;
-  i {
-    color: $dark-brown;
-    font-size: 30px;
+  align-items: flex-end;
+  img {
+    max-width: 32px;
+    border-radius: 8px;
+  }
+  h4 {
+    // color: $beige;
+    margin-left: 4px;
+    padding: 0;
+    margin-bottom: 0;
+    // font-family: 'Megrim', cursive;
+    // font-size: 32px;
+    font-family: 'Barriecito', cursive;
+    font-family: 'Macondo', cursive;
+    // font-family: 'Grand Hotel', cursive;
+    // font-family: 'Yomogi', cursive;
   }
 }
-
-.navbar-lewagon .navbar-brand img {
-  max-width: 24px;
-}
-
 
 .my-dropdown {
   display: inline-block;
