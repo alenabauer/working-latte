@@ -4,15 +4,24 @@ CSS for the main interaction
 .show-images {
   position: relative;
 }
-.show-images .back-button .back {
-  color: rgba(26, 184, 199, .7);
-  font-size: 28px;
-  z-index: 1;
-  /* text-align: left; */
-  left: 3%;
-  position: absolute;
-  top: 5%;
+.show-images .back-button {
+  background: black;
+  .back {
+    color: $light;
+    background: $dark-gray;
+    border-radius: 50%;
+    border: 1px solid $dark-gray;
+    opacity: .8;
+    // text-shadow: 1px 1px 2px $dark-gray;
+    font-size: 32px;
+    z-index: 1;
+    /* text-align: left; */
+    left: 3%;
+    position: absolute;
+    top: 5%;
+ }
 }
+
 
 .show-images img {
   object-fit: cover;
