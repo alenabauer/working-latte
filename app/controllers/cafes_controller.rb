@@ -63,7 +63,7 @@ class CafesController < ApplicationController
     @user_recent_reservation = Reservation.select do |r|
       r.cafe == @cafe && r.user == current_user && r.date < Time.now
     end.last
-    @all_reviews = Review.joins(:reservation).select { |r| r.reservation.cafe == @cafe }
+    @all_reviews = Review.order(created_at: :desc).joins(:reservation).select { |r| r.reservation.cafe == @cafe }
 
     session[:location] = "" if session[:near_me] == "true"
 
