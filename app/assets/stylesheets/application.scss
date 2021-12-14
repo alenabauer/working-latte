@@ -29,3 +29,13 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 a {
   text-decoration: none;
 }
+
+body {
+  padding: 30px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 32px 160px;
+  }
+}

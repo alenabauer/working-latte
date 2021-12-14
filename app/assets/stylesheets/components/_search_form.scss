@@ -38,3 +38,15 @@
 .flatpickr-day.selected {
   background: $green-blue !important;
 }
+
+@media (min-width: 768px) {
+  .home-search-fields {
+    .location input {
+      border: none;
+    }
+    .date-picker input {
+      border: none;
+      border-left: 1px solid hsla(185, 77%, 44%, .3);
+    }
+  }
+}
