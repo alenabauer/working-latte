@@ -7,7 +7,7 @@ class Chair < ApplicationRecord
 
   def create_time_slots
     for_current_month
-    for_next_month
+    # for_next_month
   end
 
   def for_current_month
