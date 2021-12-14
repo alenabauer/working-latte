@@ -38,9 +38,9 @@ class Cafe < ApplicationRecord
   after_create :create_chairs
 
   def create_chairs
-    5.times do
-      Chair.create!(cafe: self)
-    end
+    # 5.times do
+    Chair.create!(cafe: self)
+    # end
   end
 
   def avg_rating
