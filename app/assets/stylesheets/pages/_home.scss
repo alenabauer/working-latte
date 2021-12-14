@@ -141,14 +141,18 @@
   }
   .home-page-cards {
     .my-card {
-      min-width: 100px;
+      min-width: 18%;
       min-height: 250px;
+      background: white;
       transition: .3s;
       p {
         transition: .3s;
       }
+      img {
+        max-width: 120px;
+      }
       &:hover {
-        background: hsl(25, 36%, 62%);
+        background: $beige;
         p {
           color: white;
         }

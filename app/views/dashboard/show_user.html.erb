@@ -8,9 +8,11 @@
     </div>
     <h2>My Reservations</h2>
     <% if current_user.reservations.count > 0 %>
-      <% current_user.reservations.order(:date).each do |reservation| %>
-        <%= render 'reservation_card', reservation: reservation %>
-      <% end %>
+      <div class="user-reservations">
+        <% current_user.reservations.order(:date).each do |reservation| %>
+          <%= render 'reservation_card', reservation: reservation %>
+        <% end %>
+      </div>
     <% else %>
       <p>No reservations yet.</p>
     <% end %>

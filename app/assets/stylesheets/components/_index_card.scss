@@ -45,3 +45,23 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  .cafes-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    .card-link {
+      width: 49%;
+      margin: 8px 0;
+      transition: .3s;
+      .card-cafe {
+        height: 200px;
+      }
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+  }
+}

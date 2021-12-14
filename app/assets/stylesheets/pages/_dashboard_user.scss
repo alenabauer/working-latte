@@ -126,3 +126,10 @@
     color: $beige;
   }
 }
+
+@media (min-width: 768px) {
+  .user-reservations {
+    width: 65%;
+    margin: 0 auto;
+  }
+}

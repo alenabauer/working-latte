@@ -2,17 +2,19 @@
   <% if @cafes.length == 0 %>
     <p>No favorites yet.</p>
   <% else %>
-    <% @cafes.each do |cafe| %>
-      <%= link_to cafe_path(cafe), class: "card-link" do %>
-        <div class="card-favorites" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
-          <div class="card-upper">
-            <h3><%= cafe.name %></h3>
+    <div class="cafes-list">
+      <% @cafes.each do |cafe| %>
+        <%= link_to cafe_path(cafe), class: "card-link" do %>
+          <div class="card-cafe card-favorites" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
+            <div class="card-upper">
+              <h3><%= cafe.name %></h3>
+            </div>
+            <div class="card-lower">
+              <p><%= cafe.address %></p>
+              <p><i class="far fa-clock"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
+            </div>
           </div>
-          <div class="card-lower">
-            <p><%= cafe.address %></p>
-            <p><i class="far fa-clock"></i> <%= cafe.opening_hour %>:00 - <%= cafe.closing_hour %>:00</p>
-          </div>
-        </div>
+        <% end %>
       <% end %>
+    </div>
   <% end %>
-<% end %>
