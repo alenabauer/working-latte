@@ -212,3 +212,9 @@ body {
   width: 100%;
   margin-bottom: 20px;
 }
+
+@media (min-width: 768px) {
+  #show-tabset {
+    margin: 0 auto;
+  }
+}

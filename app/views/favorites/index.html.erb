@@ -5,7 +5,7 @@
     <div class="cafes-list">
       <% @cafes.each do |cafe| %>
         <%= link_to cafe_path(cafe), class: "card-link" do %>
-          <div class="card-cafe card-favorites" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
+          <div class="card-favorites" style="background: url(<%= asset_url(cafe.photos.first.service_url) %>); background-size: cover; background-position: center;">
             <div class="card-upper">
               <h3><%= cafe.name %></h3>
             </div>
