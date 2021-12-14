@@ -105,6 +105,12 @@
   }
 }
 
+.home-page-cards {
+  .card {
+    min-width: 300px;
+  }
+}
+
 @media (min-width: 768px) {
   .form-container {
     padding: 64px 20%;
@@ -131,6 +137,22 @@
     &:hover {
       background: $beige;
       width: 42%;
+    }
+  }
+  .home-page-cards {
+    .my-card {
+      min-width: 100px;
+      min-height: 250px;
+      transition: .3s;
+      p {
+        transition: .3s;
+      }
+      &:hover {
+        background: hsl(25, 36%, 62%);
+        p {
+          color: white;
+        }
+      }
     }
   }
 }
